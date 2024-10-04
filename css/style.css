@@ -24,6 +24,9 @@ body {
     border: solid black;
 }
 
+#results{
+}
+
 .speech-bubble:after {
 	content: '';
 	position: absolute;
