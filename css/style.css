@@ -1,0 +1,131 @@
+
+#header{
+    background-color: #49a85e;
+    text-align: center;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+    background: linear-gradient(0.14turn, #49a85e, #8bf687);
+    border-bottom: black 3px solid;
+}
+
+body {
+    background-color: #bbdefb;
+}
+
+#imgToobo{
+    max-height: 30em;
+    text-align: left;
+}
+
+.speech-bubble {
+	position: relative;
+	background: #ffffff;
+	border-radius: .4em;
+    border: solid black;
+}
+
+.speech-bubble:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	width: 0;
+	height: 0;
+	border: 1.563em solid transparent;
+	border-top-color: #ffffff;
+	border-bottom: 0;
+	border-right: 0;
+	margin-left: -0.781em;
+	margin-bottom: -1.562em;
+    
+}
+
+#inputCodePostal{
+
+}
+
+
+@media (width >= 720px) {
+.flex-container {
+
+    display: flex;
+    
+    justify-content: space-evenly; 
+    align-items: center; 
+    /* flex-flow: row; */ 
+    flex-direction: row;  
+
+    background-color: #bbdefb;
+    height: 100%;
+    padding: 15px;
+    gap: 5px;
+
+  }
+
+  .flex-container > div{
+    padding: 8px;
+  }
+
+
+  .item1 { 
+    /* flex:0 1 auto; */
+    flex-grow:0;
+    flex-shrink:1;
+  }
+			
+  .item2 { 
+    /* flex:1 1 auto; */
+    order:0;
+    flex-grow:1;
+    flex-shrink:1;
+    align-self: stretch;
+    text-align: center;
+  }
+			
+  .item3 { 
+    /* flex:0 1 auto; */
+    flex-shrink:1;
+    text-align: center;
+  }
+}
+
+@media (width <= 720px) {
+    .flex-container {
+
+        display: flex;
+        
+        justify-content: space-evenly; 
+        align-items: center; 
+        /* flex-flow: column; */ 
+        flex-direction: column;  
+    
+        height: 100%;
+        padding: 15px;
+        gap: 5px;
+    
+      }
+    
+      .flex-container > div{
+        padding: 8px;
+      }
+    
+    
+      .item1 { 
+        /* flex:0 1 auto; */
+        flex-grow:0;
+        flex-shrink:1;
+      }
+                
+      .item2 { 
+        /* flex:1 1 auto; */
+        order:0;
+        flex-grow:1;
+        flex-shrink:1;
+        align-self:center;
+      }
+                
+      .item3 { 
+        /* flex:0 1 auto; */
+        flex-shrink:1;
+      }
+}
