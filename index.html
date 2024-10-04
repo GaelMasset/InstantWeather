@@ -14,12 +14,15 @@
     <h1 id="header">La météo de Gulli</h1>  
 </header>
 
-<body>
+<main>
     <div class="flex-container">
         <div class="item1"></div>
         <div class="item2">
             <!-- Input du code postal -->
-            <p><input maxlength="5" type="text" placeholder="Code postal" id="inputCodePostal"></p>
+            <p>
+              <label for ="inputCodePostal">Code postal du l'utilisateur</label>
+                <input maxlength="5" type="text" placeholder="Code postal" id="inputCodePostal">
+            </p>
         </div>
         <div class="item3"></div>
     </div>
@@ -32,13 +35,13 @@
         <div class="item3">
             <!-- Texte dans la bulle / Image de toobo -->
             <div class="speech-bubble" id="texteBulle"><br/><p>je suis toobo  </p><br/></div>
-            <img src="images/toobo_soleil_d.png" id="imgToobo">
+            <img src="images/toobo_soleil_d.png" id="imgToobo" alt="Toobo, le fameux présentateur de la météo sur la chaîne Gulli">
         </div>
     </div>
     
 
 
     <script src="js/js.js"></script>
-  </body>
+  </main>
 
 </html>
