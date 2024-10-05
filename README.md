@@ -1,2 +1,2 @@
 # InstantWeather
-Notre super appli de météo avec Paul et Antoine
+La super appli de météo de Paul, Antoine et Gael
