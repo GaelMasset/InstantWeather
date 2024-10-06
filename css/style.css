@@ -25,6 +25,7 @@ body {
 }
 
 #results{
+  display: none;
 }
 
 .speech-bubble:after {

@@ -1,97 +1,106 @@
-let results;
-let entreeCodePostal = document.getElementById('inputCodePostal');
-entreeCodePostal.addEventListener("input", async() =>{
-    if(verifFormat(entreeCodePostal)) {
-        results = handleSearch();
+let entreeCodePostal = document.getElementById('inputCodePostal'); // Champ d'entrée pour le code postal
+
+// Ajoute un écouteur d'événements pour récuperer l'entrée utilisateur (code postal)
+entreeCodePostal.addEventListener("input", async () => {
+    if (verifierFormatCodePostal(entreeCodePostal.value)) { // Vérifie si le code postal est au bon format
+        await rechercherVillesParCodePostal(); // Appelle la fonction pour chercher les villes
     }
 });
 
-async function searchAddress(postalCode) {
-    let url = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(postalCode)}`;
-    
-    let response = await fetch(url);
-    let data = await response.json();
-    return data.features;
-}
+// Cette fonction fait une recherche d'adresse à partir du code postal.
+async function rechercherVillesParCodePostal() {
+    let postalCode = entreeCodePostal.value; // Récupère le code postal entré
+    results = await appelerApiAdresse(postalCode); // Appelle l'API pour récupérer les villes correspondant au code postal
 
-async function handleSearch() {
-    let postalCode = entreeCodePostal.value; // Le code postal à tester
-    results = await searchAddress(postalCode);
+    let resultsList = document.getElementById('results'); // Liste déroulante pour afficher les résultats
+    resultsList.innerHTML = ''; // Réinitialise la liste à chaque recherche
 
-    let resultsList = document.getElementById('results');
-    resultsList.innerHTML = ''; // Effacer les résultats précédents
-
+    // Filtre les résultats pour ne conserver que ceux de type "municipalité"
     let villes = results.filter(result => result.properties.type === 'municipality');
 
+    // Parcourt les villes et les ajoute à la liste déroulante
     villes.forEach(result => {
         let listItem = document.createElement('option');
-        listItem.textContent = result.properties.label;
-        listItem.value = result.properties.citycode; // Assigner le code INSEE à la valeur de l'option
+        listItem.textContent = result.properties.label; // Affiche le nom de la ville
+        listItem.value = result.properties.citycode; // Stocke le code INSEE dans la valeur de l'option
         resultsList.appendChild(listItem);
     });
 
+    // Si des villes sont trouvées, on affiche la liste déroulante et on lance la recherche météo pour la première ville
     if (villes.length > 0) {
         document.getElementById('results').style.display = 'flex';
+
+        // Affiche les informations météo de la première ville par défaut
+        rechercherMeteoParCodeINSEE(villes[0].properties.citycode);
+
+        // Si l'utilisateur change de sélection dans la liste déroulante, la météo de la nouvelle ville s'affiche
+        resultsList.addEventListener('change', () => {
+            let codeINSEE = resultsList.value; // Récupère le code INSEE de la ville sélectionnée
+            if (codeINSEE) {
+                rechercherMeteoParCodeINSEE(codeINSEE); // Recherche les informations météo de la ville sélectionnée
+            }
+        });
     } else {
-        document.getElementById('results').style.display = 'none';
+        document.getElementById('results').style.display = 'none'; // Cache la liste s'il n'y a pas de résultats
     }
 
-    // Écouter l'événement 'change' sur le select pour déclencher la recherche météo
-    resultsList.addEventListener('change', () => {
-        let codeINSEE = resultsList.value; // Récupérer le code INSEE sélectionné
-        if (codeINSEE) {
-            RechercheInfMeteo(codeINSEE); // Appeler la fonction pour rechercher la météo
-        }
-    });
-
-    return results;
-}
-
-//Fonction qui vérifie le format du code Postal
-async function verifFormat(valeur){
-    if (valeur.length === 5 && /^[0-9]+$/.test(valeur)) {
-        return true;
-    }
-}
-
-async function RechercheInfMeteo(codeINSEE) {
-    const token = '83e0e2c124fdddb66c4a732aa8839d713fd07053a743e8ec040f584c8cbed32a';
     
-    // URL pour l'éphéméride (lever/coucher de soleil)
+}
+
+// Cette fonction fait appel à l'API de l'adresse pour chercher des villes par code postal.
+async function appelerApiAdresse(postalCode) {
+    let url = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(postalCode)}`; // URL de l'API avec le code postal
+    let response = await fetch(url); // Envoie la requête à l'API
+    let data = await response.json(); // Convertit la réponse en JSON
+    return data.features; // Retourne les villes trouvées 
+}
+
+// Fonction de vérification du format du code postal (5 chiffres)
+async function verifierFormatCodePostal(valeur) {
+    return valeur.length === 5 && /^[0-9]+$/.test(valeur); // Retourne true si le format est correct, sinon false
+}
+
+// Fonction pour rechercher les informations météo à partir d'un code INSEE.
+async function rechercherMeteoParCodeINSEE(codeINSEE) {
+    // Token de l'API Météo Concept (clé d'authentification)
+    const token = '83e0e2c124fdddb66c4a732aa8839d713fd07053a743e8ec040f584c8cbed32a';
+
+    // URL pour obtenir les informations d'éphéméride (heures d'ensoleillement)
     const ephemerideUrl = `https://api.meteo-concept.com/api/ephemeride/0?token=${token}&insee=${codeINSEE}`;
 
-    // URL pour les prévisions météo (inclut température et probabilité de pluie)
+    // URL pour obtenir les prévisions météo (températures, probabilité de pluie)
     const forecastUrl = `https://api.meteo-concept.com/api/forecast/daily/0?token=${token}&insee=${codeINSEE}`;
 
     try {
-        // Requête pour l'éphéméride (ensoleillement, lever/coucher du soleil)
+        // Appel de l'API pour obtenir les informations d'éphéméride (ex : heures d'ensoleillement)
         let ephemerideResponse = await fetch(ephemerideUrl);
         let ephemerideData = await ephemerideResponse.json();
 
-        // Requête pour les prévisions météo (températures, probabilité de pluie)
+        // Appel de l'API pour obtenir les prévisions météo (ex : température, pluie)
         let forecastResponse = await fetch(forecastUrl);
         let forecastData = await forecastResponse.json();
 
-        // Extraire les données pour l'affichage
-        const ephemeride = ephemerideData.ephemeride;
-        const forecast = forecastData.forecast;
+        // Extraction des données utiles
+        let ephemeride = ephemerideData.ephemeride;
+        let forecast = forecastData.forecast;
 
-        // Afficher les données météo dans la bulle
+        // Appelle la fonction pour afficher les données météo dans la bulle de texte
         afficherMeteo(ephemeride, forecast);
     } catch (error) {
-        console.error(error);
+        console.error(error); // Affiche l'erreur dans la console en cas de problème
         document.getElementById('texteBulle').innerHTML = "<p>Impossible de récupérer les infos météo.</p>";
     }
 }
 
-// Fonction pour afficher les données météo
+// Fonction pour afficher les données météo dans la bulle
 function afficherMeteo(ephemeride, forecast) {
-    // Calcul de la durée d'ensoleillement en heures (ensoleillement entre lever et coucher du soleil)
-    let heuresEnsoleillement = calculateSunlightHours(ephemeride.sunrise, ephemeride.sunset);
+    // Calcul du nombre d'heures d'ensoleillement en fonction des heures de lever et de coucher du soleil
+    let heuresEnsoleillement = calculerHeuresEnsoleillement(ephemeride.sunrise, ephemeride.sunset);
 
-    // Probabilité de pluie (en pourcentage)
-    let probabilitePluie = forecast.probarain;  // probabilité de pluie pour la journée
+    // Probabilité de pluie
+    let probabilitePluie = forecast.probarain;
 
+    // Mise à jour du contenu HTML de la bulle de texte avec les informations météo
     const texteBulle = document.getElementById('texteBulle');
     texteBulle.innerHTML = `
         <p>Météo du jour :</p>
@@ -99,22 +108,20 @@ function afficherMeteo(ephemeride, forecast) {
         <p>Température minimale : ${forecast.tmin}°C</p>
         <p>Probabilité de pluie : ${probabilitePluie}%</p>
         <p>Heures d'ensoleillement : ${heuresEnsoleillement} heures</p>
-        <p>Lever du soleil : ${ephemeride.sunrise}</p>
-        <p>Coucher du soleil : ${ephemeride.sunset}</p>
     `;
 }
 
 // Fonction pour calculer le nombre d'heures d'ensoleillement
-function calculateSunlightHours(sunrise, sunset) {
+function calculerHeuresEnsoleillement(sunrise, sunset) {
+    // Convertit les heures de lever et coucher du soleil en minutes depuis minuit
     let [sunriseHour, sunriseMinute] = sunrise.split(':').map(Number);
     let [sunsetHour, sunsetMinute] = sunset.split(':').map(Number);
 
+    // Calcule le nombre total de minutes depuis minuit pour le lever et le coucher du soleil
     let totalMinutesSunrise = sunriseHour * 60 + sunriseMinute;
     let totalMinutesSunset = sunsetHour * 60 + sunsetMinute;
 
+    // Calcule la différence en minutes, puis convertit en heures (avec 2 décimales)
     let totalSunlightMinutes = totalMinutesSunset - totalMinutesSunrise;
-    return (totalSunlightMinutes / 60).toFixed(2);  // Retourne la durée en heures avec 2 décimales
+    return (totalSunlightMinutes / 60).toFixed(2); // Retourne la durée d'ensoleillement en heures
 }
-
-
-
