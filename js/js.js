@@ -1,5 +1,12 @@
 let entreeCodePostal = document.getElementById('inputCodePostal'); // Champ d'entrée pour le code postal
 
+//Variables associées aux checkbox 
+let latitude = document.getElementById('latitudeCheck');
+let longitude = document.getElementById('longitudeCheck');
+let cumulPluie = document.getElementById('cumulPCheck');
+let ventMoyenne = document.getElementById('ventMoyCheck');
+let ventDirection = document.getElementById('ventDirCheck');
+
 // Ajoute un écouteur d'événements pour récuperer l'entrée utilisateur (code postal)
 entreeCodePostal.addEventListener("input", async () => {
     if (verifierFormatCodePostal(entreeCodePostal.value)) { // Vérifie si le code postal est au bon format
@@ -102,13 +109,34 @@ function afficherMeteo(ephemeride, forecast) {
 
     // Mise à jour du contenu HTML de la bulle de texte avec les informations météo
     const texteBulle = document.getElementById('texteBulle');
-    texteBulle.innerHTML = `
+    let infosMeteo = `
         <p>Météo du jour :</p>
         <p>Température maximale : ${forecast.tmax}°C</p>
         <p>Température minimale : ${forecast.tmin}°C</p>
         <p>Probabilité de pluie : ${probabilitePluie}%</p>
         <p>Heures d'ensoleillement : ${heuresEnsoleillement} heures</p>
     `;
+
+    //On vérifie quelles sont les checkbox cochées et on adapte les infos en fonction
+    if(latitude.checked){
+        infosMeteo = infosMeteo + `<p>Latitude décimale de la commune : ${forecast.latitude}°</p>`;
+    }
+    if(longitude.checked){
+        infosMeteo = infosMeteo + `<p>Longitude décimale de la commune : ${forecast.longitude}°</p>`;
+    }
+    if(cumulPluie.checked == true){
+        infosMeteo = infosMeteo + `<p>Cumul de pluie sur la journée : ${forecast.rr10} mm</p>`;
+    }
+    if(ventMoyenne.checked == true){
+        infosMeteo = infosMeteo + `<p>Les rafales de vent maximales à 10m au-dessus du sol : ${forecast.gust10m} km/h</p>`;
+    }
+    if(ventDirection.checked == true){
+        infosMeteo = infosMeteo + `<p>La direction du vent moyen en degrés, à 10m au-dessus du sol : ${forecast.dirwind10m}°</p>`;
+    }
+
+
+    texteBulle.innerHTML = infosMeteo;
+
 }
 
 // Fonction pour calculer le nombre d'heures d'ensoleillement
