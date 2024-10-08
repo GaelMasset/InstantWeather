@@ -5,12 +5,38 @@
     padding-top: 0.2em;
     padding-bottom: 0.2em;
     background: linear-gradient(0.14turn, #49a85e, #8bf687);
-    border-bottom: black 3px solid;
+    border-bottom: rgb(0, 0, 0) 3px solid;
+
+    color:rgb(0, 0, 0);
+    font-size: 3.5em;
+    font-family: "Kanit", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+
 }
 
 body {
     background-color: #bbdefb;
+    background-image: url('../images/fond.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
+
+#texteBulle{
+  text-align: center;
+}
+
+
+#inputCodePostal{
+  height: 60px;
+  background-color: aliceblue;
+  border: 3px solid black;
+  border-radius: 15px;
+  text-align: center;
+}
+
+
 
 #imgToobo{
     max-height: 30em;
@@ -59,7 +85,6 @@ body {
     /* flex-flow: row; */ 
     flex-direction: row;  
 
-    background-color: #bbdefb;
     height: 100%;
     padding: 15px;
     gap: 5px;
