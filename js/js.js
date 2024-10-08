@@ -1,4 +1,5 @@
-let entreeCodePostal = document.getElementById('inputCodePostal'); // Champ d'entrée pour le code postal
+let entreeCodePostal = document.getElementById('inputCodePostal'); // Champs d'entrée pour le code postal
+
 
 //Variables associées aux checkbox 
 let latitude = document.getElementById('latitudeCheck');
@@ -69,30 +70,29 @@ async function verifierFormatCodePostal(valeur) {
 
 // Fonction pour rechercher les informations météo à partir d'un code INSEE.
 async function rechercherMeteoParCodeINSEE(codeINSEE) {
+    let nbJours = document.getElementById('slider').value; // Champs d'entrée pour le nombre de jour 
+    for(let i=0; i<nbJours; ++i){
+
+    }
     // Token de l'API Météo Concept (clé d'authentification)
     const token = '83e0e2c124fdddb66c4a732aa8839d713fd07053a743e8ec040f584c8cbed32a';
 
-    // URL pour obtenir les informations d'éphéméride (heures d'ensoleillement)
-    const ephemerideUrl = `https://api.meteo-concept.com/api/ephemeride/0?token=${token}&insee=${codeINSEE}`;
+    
 
     // URL pour obtenir les prévisions météo (températures, probabilité de pluie)
-    const forecastUrl = `https://api.meteo-concept.com/api/forecast/daily/0?token=${token}&insee=${codeINSEE}`;
+    let forecastUrl = `https://api.meteo-concept.com/api/forecast/daily/0?token=${token}&insee=${codeINSEE}`;
 
     try {
-        // Appel de l'API pour obtenir les informations d'éphéméride (ex : heures d'ensoleillement)
-        let ephemerideResponse = await fetch(ephemerideUrl);
-        let ephemerideData = await ephemerideResponse.json();
 
         // Appel de l'API pour obtenir les prévisions météo (ex : température, pluie)
         let forecastResponse = await fetch(forecastUrl);
         let forecastData = await forecastResponse.json();
 
         // Extraction des données utiles
-        let ephemeride = ephemerideData.ephemeride;
         let forecast = forecastData.forecast;
 
         // Appelle la fonction pour afficher les données météo dans la bulle de texte
-        afficherMeteo(ephemeride, forecast);
+        afficherMeteo(forecast);
     } catch (error) {
         console.error(error); // Affiche l'erreur dans la console en cas de problème
         document.getElementById('texteBulle').innerHTML = "<p>Impossible de récupérer les infos météo.</p>";
@@ -100,21 +100,20 @@ async function rechercherMeteoParCodeINSEE(codeINSEE) {
 }
 
 // Fonction pour afficher les données météo dans la bulle
-function afficherMeteo(ephemeride, forecast) {
-    // Calcul du nombre d'heures d'ensoleillement en fonction des heures de lever et de coucher du soleil
-    let heuresEnsoleillement = calculerHeuresEnsoleillement(ephemeride.sunrise, ephemeride.sunset);
+function afficherMeteo(forecast) {
 
     // Probabilité de pluie
     let probabilitePluie = forecast.probarain;
 
     // Mise à jour du contenu HTML de la bulle de texte avec les informations météo
     const texteBulle = document.getElementById('texteBulle');
+    let date = new Date();
     let infosMeteo = `
-        <p>Météo du jour :</p>
+        <p>Météo du ${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}</p>
         <p>Température maximale : ${forecast.tmax}°C</p>
         <p>Température minimale : ${forecast.tmin}°C</p>
         <p>Probabilité de pluie : ${probabilitePluie}%</p>
-        <p>Heures d'ensoleillement : ${heuresEnsoleillement} heures</p>
+        <p>Heures d'ensoleillement : ${forecast.sun_hours} heures</p>
     `;
 
     //On vérifie quelles sont les checkbox cochées et on adapte les infos en fonction
