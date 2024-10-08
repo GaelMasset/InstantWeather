@@ -88,6 +88,10 @@ body {
     
 }
 
+#premLigne{
+  min-height: 50%;
+}
+
 .remplir{
   min-width: 15%;
 }
@@ -149,6 +153,10 @@ body {
     flex-shrink:1;
     text-align: center;
   }
+
+  .pageParam{
+    height: 50%;
+  }
 }
 
 @media (width <= 720px) {
@@ -184,12 +192,15 @@ body {
         flex-grow:1;
         flex-shrink:1;
         align-self:center;
+        
       }
                 
       .item3 { 
         /* flex:0 1 auto; */
         flex-shrink:1;
       }
+
+      
 }
 
 .flex-containerToobo {

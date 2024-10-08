@@ -16,7 +16,7 @@
 </header>
 
 <main>
-    <div class="flex-container">
+    <div class="flex-container" id="premLigne">
         <div class="item1 remplir" ><i class="fa-solid fa-cloud fa-5x"></i></div>
         <div class="item2">
             <!-- Input du code postal -->
@@ -39,6 +39,7 @@
           
         </div>
         <div class="item2 pageParam">
+          
           <p><input type="checkbox" id="latitudeCheck" name="scales" class="checkboxStyle" />  Latitude</p>
           <p><input type="checkbox" id="longitudeCheck" name="scales" class="checkboxStyle" />  Longitude</p>
           <p><input type="checkbox" id="cumulPCheck" name="scales" class="checkboxStyle" />  Cumul de pluie aujourd'hui</p>
@@ -52,14 +53,12 @@
             <div class="speech-bubble"><br/>
               <div class="flex-containerToobo">
                 <div class="flex-items">
-                  <button class="boutonSelectJour"><p>-</p></button>
                 </div>
                 <div class="flex-items">
                   <input type="range" id="slider" min="1" max="7" value="1" step="1">
                   <p id="texteBulle">je suis toobo</p>
                 </div>
                 <div class="flex-items">
-                  <button class="boutonSelectJour"><p>+</p></button>
                 </div>
               </div>
             
