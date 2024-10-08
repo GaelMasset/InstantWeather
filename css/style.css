@@ -34,9 +34,29 @@ body {
   border: 3px solid black;
   border-radius: 15px;
   text-align: center;
+  font-size: 2em;
+}
+#results{
+  height: 60px;
+  background-color: aliceblue;
+  border: 3px solid black;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 2em;
+  align-items: center;
+  display:none;
 }
 
+.pageParam{
+  background-color: aliceblue;
+  border: 3px solid black;
+  
+  border-radius: 10px;
+}
 
+.checkboxStyle{
+  height: 20px;
+}
 
 #imgToobo{
     max-height: 30em;
@@ -50,9 +70,7 @@ body {
     border: solid black;
 }
 
-#results{
-  display: none;
-}
+
 
 .speech-bubble:after {
 	content: '';
@@ -70,10 +88,25 @@ body {
     
 }
 
-#inputCodePostal{
-
+.remplir{
+  min-width: 15%;
 }
 
+.boutonSelectJour{
+  border: 3px solid black;
+  border-radius: 10px;
+  width: 3em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  transition-duration: 0.2s ;
+}
+.boutonSelectJour->p{
+  align-items: center;
+  font-size: 3em;
+}
+.boutonSelectJour:hover {opacity: 0.2}
 
 @media (width >= 720px) {
 .flex-container {
@@ -157,4 +190,40 @@ body {
         /* flex:0 1 auto; */
         flex-shrink:1;
       }
+}
+
+.flex-containerToobo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+    align-items: normal;
+  align-content: normal;
+}
+
+.flex-items:nth-child(1) {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+}
+
+.flex-items:nth-child(2) {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+}
+
+.flex-items:nth-child(3) {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
 }
