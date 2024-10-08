@@ -8,7 +8,9 @@ Notre application offre des informations journalières sur la météo pour chacu
 
 ## API
 Cette application web utilise la version gratuite de l'API geo.api.gouv ainsi que l'API météo-concept
+
 🇫🇷 Geo.api.gouv : https://geo.api.gouv.fr/decoupage-administratif/communes
+
 🌤️ Météo concept: https://api.meteo-concept.com/
 
 ## Inspiration
