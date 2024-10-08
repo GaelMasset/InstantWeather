@@ -24,6 +24,10 @@ body {
     border: solid black;
 }
 
+#results{
+  display: none;
+}
+
 .speech-bubble:after {
 	content: '';
 	position: absolute;
