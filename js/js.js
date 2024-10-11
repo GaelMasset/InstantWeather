@@ -1,5 +1,16 @@
-let entreeCodePostal = document.getElementById('inputCodePostal'); // Champs d'entrée pour le code postal
+// Classe WeatherCard pour simplifier l'affichage d'informations
+class WeatherCard{
+    constructor(date, tempMax, tempMin, pluieProba, ensolHeures){
+        this.date = date;
+        this.tempMax = tempMax;
+        this.tempMin = tempMin;
+        this.pluieProba = pluieProba;
+        this.ensolHeures = ensolHeures
+    }
 
+}
+
+let entreeCodePostal = document.getElementById('inputCodePostal'); // Champs d'entrée pour le code postal
 
 //Variables associées aux checkbox 
 let latitude = document.getElementById('latitudeCheck');
@@ -71,6 +82,8 @@ async function verifierFormatCodePostal(valeur) {
 // Fonction pour rechercher les informations météo à partir d'un code INSEE.
 async function rechercherMeteoParCodeINSEE(codeINSEE) {
     let nbJours = document.getElementById('slider').value; // Champs d'entrée pour le nombre de jour 
+    let tabWheatherCard;            // Tableau pour contenir les infos sous formes de cartes
+
     for(let i=0; i<nbJours; ++i){
 
     }
