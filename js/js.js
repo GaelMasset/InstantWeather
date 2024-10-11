@@ -82,54 +82,52 @@ async function verifierFormatCodePostal(valeur) {
 // Fonction pour rechercher les informations météo à partir d'un code INSEE.
 async function rechercherMeteoParCodeINSEE(codeINSEE) {
     let nbJours = document.getElementById('slider').value; // Champs d'entrée pour le nombre de jour 
-    let tabWheatherCard;            // Tableau pour contenir les infos sous formes de cartes
+    let tabWheatherCard = [];            // Tableau pour contenir les infos sous formes de cartes
 
-    for(let i=0; i<nbJours; ++i){
-
-    }
     // Token de l'API Météo Concept (clé d'authentification)
     const token = '83e0e2c124fdddb66c4a732aa8839d713fd07053a743e8ec040f584c8cbed32a';
 
+    for(let i=0; i<nbJours; ++i){
+
+        // URL pour obtenir les prévisions météo (températures, probabilité de pluie)
+        let forecastUrl = `https://api.meteo-concept.com/api/forecast/daily/${i}?token=${token}&insee=${codeINSEE}`;
+
+        try {
+
+            // Appel de l'API pour obtenir les prévisions météo (ex : température, pluie)
+            let forecastResponse = await fetch(forecastUrl);
+            let forecastData = await forecastResponse.json();
     
+            // Extraction des données utiles
+            let forecast = forecastData.forecast;
+            
+            //Crée une WeatherCard avec les infos
+            tabWheatherCard.push(new WeatherCard(forecast.Date, forecast.tmax, forecast.tmin, forecast.probarain, forecast.sun_hours));
+    
+            // Appelle la fonction pour afficher les données météo dans la bulle de texte
+            afficherMeteo(tabWheatherCard[0]);
+        } catch (error) {
+            console.error(error); // Affiche l'erreur dans la console en cas de problème
+            document.getElementById('texteBulle').innerHTML = "<p>Impossible de récupérer les infos météo.</p>";
+        }
 
-    // URL pour obtenir les prévisions météo (températures, probabilité de pluie)
-    let forecastUrl = `https://api.meteo-concept.com/api/forecast/daily/0?token=${token}&insee=${codeINSEE}`;
-
-    try {
-
-        // Appel de l'API pour obtenir les prévisions météo (ex : température, pluie)
-        let forecastResponse = await fetch(forecastUrl);
-        let forecastData = await forecastResponse.json();
-
-        // Extraction des données utiles
-        let forecast = forecastData.forecast;
-
-        // Appelle la fonction pour afficher les données météo dans la bulle de texte
-        afficherMeteo(forecast);
-    } catch (error) {
-        console.error(error); // Affiche l'erreur dans la console en cas de problème
-        document.getElementById('texteBulle').innerHTML = "<p>Impossible de récupérer les infos météo.</p>";
-    }
+    } 
 }
 
 // Fonction pour afficher les données météo dans la bulle
-function afficherMeteo(forecast) {
-
-    // Probabilité de pluie
-    let probabilitePluie = forecast.probarain;
+function afficherMeteo(WeatherCard) {
 
     // Mise à jour du contenu HTML de la bulle de texte avec les informations météo
     const texteBulle = document.getElementById('texteBulle');
-    let date = new Date();
     let infosMeteo = `
-        <p>Météo du ${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}</p>
-        <p>Température maximale : ${forecast.tmax}°C</p>
-        <p>Température minimale : ${forecast.tmin}°C</p>
-        <p>Probabilité de pluie : ${probabilitePluie}%</p>
-        <p>Heures d'ensoleillement : ${forecast.sun_hours} heures</p>
+        <p>Météo du ${WeatherCard.date}</p>
+        <p>Température maximale : ${WeatherCard.tempMax}°C</p>
+        <p>Température minimale : ${WeatherCard.tempMin}°C</p>
+        <p>Probabilité de pluie : ${WeatherCard.pluieProba}%</p>
+        <p>Heures d'ensoleillement : ${WeatherCard.ensolHeures} heures</p>
     `;
 
-    //On vérifie quelles sont les checkbox cochées et on adapte les infos en fonction
+    /*//On vérifie quelles sont les checkbox cochées et on adapte les infos en fonction
     if(latitude.checked){
         infosMeteo = infosMeteo + `<p>Latitude décimale de la commune : ${forecast.latitude}°</p>`;
     }
@@ -144,7 +142,7 @@ function afficherMeteo(forecast) {
     }
     if(ventDirection.checked == true){
         infosMeteo = infosMeteo + `<p>La direction du vent moyen en degrés, à 10m au-dessus du sol : ${forecast.dirwind10m}°</p>`;
-    }
+    }*/
 
 
     texteBulle.innerHTML = infosMeteo;
