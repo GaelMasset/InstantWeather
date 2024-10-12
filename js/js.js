@@ -1,11 +1,16 @@
 // Classe WeatherCard pour simplifier l'affichage d'informations
 class WeatherCard{
-    constructor(date, tempMax, tempMin, pluieProba, ensolHeures){
+    constructor(date, tempMax, tempMin, pluieProba, ensolHeures, latitude, longitude, cumulPluie, ventMoyen, ventDirection){
         this.date = date;
         this.tempMax = tempMax;
         this.tempMin = tempMin;
         this.pluieProba = pluieProba;
         this.ensolHeures = ensolHeures
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.cumulPluie = cumulPluie;
+        this.ventMoyen = ventMoyen;
+        this.ventDirection = ventDirection;
     }
 
 }
@@ -100,18 +105,19 @@ async function rechercherMeteoParCodeINSEE(codeINSEE) {
     
             // Extraction des données utiles
             let forecast = forecastData.forecast;
-            
-            //Crée une WeatherCard avec les infos
-            tabWheatherCard.push(new WeatherCard(forecast.Date, forecast.tmax, forecast.tmin, forecast.probarain, forecast.sun_hours));
-    
-            // Appelle la fonction pour afficher les données météo dans la bulle de texte
-            afficherMeteo(tabWheatherCard[0]);
+
+
+            //Crée une WeatherCard avec toutes les infos, peut importe si on les affiche
+            tabWheatherCard.push(new WeatherCard(forecast.datetime, forecast.tmax, forecast.tmin, forecast.probarain, forecast.sun_hours, forecast.latitude, forecast.longitude, forecast.rr10, forecast.gust10m, forecast.dirwind10m));
+
         } catch (error) {
             console.error(error); // Affiche l'erreur dans la console en cas de problème
             document.getElementById('texteBulle').innerHTML = "<p>Impossible de récupérer les infos météo.</p>";
         }
-
-    } 
+    }
+     // Appelle la fonction pour afficher les données météo dans la bulle de texte 
+     // A ENLEVER
+    afficherMeteo(tabWheatherCard[1]); 
 }
 
 // Fonction pour afficher les données météo dans la bulle
@@ -119,30 +125,33 @@ function afficherMeteo(WeatherCard) {
 
     // Mise à jour du contenu HTML de la bulle de texte avec les informations météo
     const texteBulle = document.getElementById('texteBulle');
+
+    //On récupère le timestamp fourni par l'API et on le transforme en objet date plus malléable
+    date = new Date(WeatherCard.date);
     let infosMeteo = `
-        <p>Météo du ${WeatherCard.date}</p>
+        <p>Météo du ${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}</p>
         <p>Température maximale : ${WeatherCard.tempMax}°C</p>
         <p>Température minimale : ${WeatherCard.tempMin}°C</p>
         <p>Probabilité de pluie : ${WeatherCard.pluieProba}%</p>
         <p>Heures d'ensoleillement : ${WeatherCard.ensolHeures} heures</p>
     `;
 
-    /*//On vérifie quelles sont les checkbox cochées et on adapte les infos en fonction
+    //On vérifie quelles sont les checkbox cochées et on adapte les infos en fonction
     if(latitude.checked){
-        infosMeteo = infosMeteo + `<p>Latitude décimale de la commune : ${forecast.latitude}°</p>`;
+        infosMeteo = infosMeteo + `<p>Latitude décimale de la commune : ${WeatherCard.latitude}°</p>`;
     }
     if(longitude.checked){
-        infosMeteo = infosMeteo + `<p>Longitude décimale de la commune : ${forecast.longitude}°</p>`;
+        infosMeteo = infosMeteo + `<p>Longitude décimale de la commune : ${WeatherCard.longitude}°</p>`;
     }
     if(cumulPluie.checked == true){
-        infosMeteo = infosMeteo + `<p>Cumul de pluie sur la journée : ${forecast.rr10} mm</p>`;
+        infosMeteo = infosMeteo + `<p>Cumul de pluie sur la journée : ${WeatherCard.cumulPluie} mm</p>`;
     }
     if(ventMoyenne.checked == true){
-        infosMeteo = infosMeteo + `<p>Les rafales de vent maximales à 10m au-dessus du sol : ${forecast.gust10m} km/h</p>`;
+        infosMeteo = infosMeteo + `<p>Les rafales de vent maximales à 10m au-dessus du sol : ${WeatherCard.ventMoyen} km/h</p>`;
     }
     if(ventDirection.checked == true){
-        infosMeteo = infosMeteo + `<p>La direction du vent moyen en degrés, à 10m au-dessus du sol : ${forecast.dirwind10m}°</p>`;
-    }*/
+        infosMeteo = infosMeteo + `<p>La direction du vent moyen en degrés, à 10m au-dessus du sol : ${WeatherCard.ventDirection}°</p>`;
+    }
 
 
     texteBulle.innerHTML = infosMeteo;
