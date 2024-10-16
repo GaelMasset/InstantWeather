@@ -1,5 +1,21 @@
-let entreeCodePostal = document.getElementById('inputCodePostal'); // Champs d'entrée pour le code postal
+// Classe WeatherCard pour simplifier l'affichage d'informations
+class WeatherCard{
+    constructor(date, tempMax, tempMin, pluieProba, ensolHeures, latitude, longitude, cumulPluie, ventMoyen, ventDirection){
+        this.date = date;
+        this.tempMax = tempMax;
+        this.tempMin = tempMin;
+        this.pluieProba = pluieProba;
+        this.ensolHeures = ensolHeures
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.cumulPluie = cumulPluie;
+        this.ventMoyen = ventMoyen;
+        this.ventDirection = ventDirection;
+    }
 
+}
+
+let entreeCodePostal = document.getElementById('inputCodePostal'); // Champs d'entrée pour le code postal
 
 //Variables associées aux checkbox 
 let latitude = document.getElementById('latitudeCheck');
@@ -71,66 +87,70 @@ async function verifierFormatCodePostal(valeur) {
 // Fonction pour rechercher les informations météo à partir d'un code INSEE.
 async function rechercherMeteoParCodeINSEE(codeINSEE) {
     let nbJours = document.getElementById('slider').value; // Champs d'entrée pour le nombre de jour 
-    for(let i=0; i<nbJours; ++i){
+    let tabWheatherCard = [];            // Tableau pour contenir les infos sous formes de cartes
 
-    }
     // Token de l'API Météo Concept (clé d'authentification)
     const token = '83e0e2c124fdddb66c4a732aa8839d713fd07053a743e8ec040f584c8cbed32a';
 
+    for(let i=0; i<nbJours; ++i){
+
+        // URL pour obtenir les prévisions météo (températures, probabilité de pluie)
+        let forecastUrl = `https://api.meteo-concept.com/api/forecast/daily/${i}?token=${token}&insee=${codeINSEE}`;
+
+        try {
+
+            // Appel de l'API pour obtenir les prévisions météo (ex : température, pluie)
+            let forecastResponse = await fetch(forecastUrl);
+            let forecastData = await forecastResponse.json();
     
+            // Extraction des données utiles
+            let forecast = forecastData.forecast;
 
-    // URL pour obtenir les prévisions météo (températures, probabilité de pluie)
-    let forecastUrl = `https://api.meteo-concept.com/api/forecast/daily/0?token=${token}&insee=${codeINSEE}`;
 
-    try {
+            //Crée une WeatherCard avec toutes les infos, peut importe si on les affiche
+            tabWheatherCard.push(new WeatherCard(forecast.datetime, forecast.tmax, forecast.tmin, forecast.probarain, forecast.sun_hours, forecast.latitude, forecast.longitude, forecast.rr10, forecast.gust10m, forecast.dirwind10m));
 
-        // Appel de l'API pour obtenir les prévisions météo (ex : température, pluie)
-        let forecastResponse = await fetch(forecastUrl);
-        let forecastData = await forecastResponse.json();
-
-        // Extraction des données utiles
-        let forecast = forecastData.forecast;
-
-        // Appelle la fonction pour afficher les données météo dans la bulle de texte
-        afficherMeteo(forecast);
-    } catch (error) {
-        console.error(error); // Affiche l'erreur dans la console en cas de problème
-        document.getElementById('texteBulle').innerHTML = "<p>Impossible de récupérer les infos météo.</p>";
+        } catch (error) {
+            console.error(error); // Affiche l'erreur dans la console en cas de problème
+            document.getElementById('texteBulle').innerHTML = "<p>Impossible de récupérer les infos météo.</p>";
+        }
     }
+     // Appelle la fonction pour afficher les données météo dans la bulle de texte 
+     // A ENLEVER
+    afficherMeteo(tabWheatherCard[1]); 
 }
 
 // Fonction pour afficher les données météo dans la bulle
-function afficherMeteo(forecast) {
-
-    // Probabilité de pluie
-    let probabilitePluie = forecast.probarain;
+function afficherMeteo(WeatherCard) {
 
     // Mise à jour du contenu HTML de la bulle de texte avec les informations météo
     const texteBulle = document.getElementById('texteBulle');
-    let date = new Date();
+
+    //On récupère le timestamp fourni par l'API et on le transforme en objet date plus malléable
+    date = new Date(WeatherCard.date);
     let infosMeteo = `
         <p>Météo du ${date.getDate()}/${date.getMonth()+1}/${date.getFullYear()}</p>
-        <p>Température maximale : ${forecast.tmax}°C</p>
-        <p>Température minimale : ${forecast.tmin}°C</p>
-        <p>Probabilité de pluie : ${probabilitePluie}%</p>
-        <p>Heures d'ensoleillement : ${forecast.sun_hours} heures</p>
+        <p>Température maximale : ${WeatherCard.tempMax}°C</p>
+        <p>Température minimale : ${WeatherCard.tempMin}°C</p>
+        <p>Probabilité de pluie : ${WeatherCard.pluieProba}%</p>
+        <p>Heures d'ensoleillement : ${WeatherCard.ensolHeures} heures</p>
     `;
 
     //On vérifie quelles sont les checkbox cochées et on adapte les infos en fonction
     if(latitude.checked){
-        infosMeteo = infosMeteo + `<p>Latitude décimale de la commune : ${forecast.latitude}°</p>`;
+        infosMeteo = infosMeteo + `<p>Latitude décimale de la commune : ${WeatherCard.latitude}°</p>`;
     }
     if(longitude.checked){
-        infosMeteo = infosMeteo + `<p>Longitude décimale de la commune : ${forecast.longitude}°</p>`;
+        infosMeteo = infosMeteo + `<p>Longitude décimale de la commune : ${WeatherCard.longitude}°</p>`;
     }
     if(cumulPluie.checked == true){
-        infosMeteo = infosMeteo + `<p>Cumul de pluie sur la journée : ${forecast.rr10} mm</p>`;
+        infosMeteo = infosMeteo + `<p>Cumul de pluie sur la journée : ${WeatherCard.cumulPluie} mm</p>`;
     }
     if(ventMoyenne.checked == true){
-        infosMeteo = infosMeteo + `<p>Les rafales de vent maximales à 10m au-dessus du sol : ${forecast.gust10m} km/h</p>`;
+        infosMeteo = infosMeteo + `<p>Les rafales de vent maximales à 10m au-dessus du sol : ${WeatherCard.ventMoyen} km/h</p>`;
     }
     if(ventDirection.checked == true){
-        infosMeteo = infosMeteo + `<p>La direction du vent moyen en degrés, à 10m au-dessus du sol : ${forecast.dirwind10m}°</p>`;
+        infosMeteo = infosMeteo + `<p>La direction du vent moyen en degrés, à 10m au-dessus du sol : ${WeatherCard.ventDirection}°</p>`;
     }
 
 
