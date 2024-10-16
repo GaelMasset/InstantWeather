@@ -24,6 +24,16 @@ let cumulPluie = document.getElementById('cumulPCheck');
 let ventMoyenne = document.getElementById('ventMoyCheck');
 let ventDirection = document.getElementById('ventDirCheck');
 
+//Variables pour les boutons
+let boutonGauche = document.getElementById('boutonGauche');
+let boutonDroite = document.getElementById('boutonDroite');
+
+//Indices qui serviront pour le tableau de WeatherCard
+let indice = 0;
+let indiceMax; 
+// Tableau pour contenir les infos sous formes de cartes
+let tabWheatherCard = [];   
+
 // Ajoute un écouteur d'événements pour récuperer l'entrée utilisateur (code postal)
 entreeCodePostal.addEventListener("input", async () => {
     if (verifierFormatCodePostal(entreeCodePostal.value)) { // Vérifie si le code postal est au bon format
@@ -87,7 +97,7 @@ async function verifierFormatCodePostal(valeur) {
 // Fonction pour rechercher les informations météo à partir d'un code INSEE.
 async function rechercherMeteoParCodeINSEE(codeINSEE) {
     let nbJours = document.getElementById('slider').value; // Champs d'entrée pour le nombre de jour 
-    let tabWheatherCard = [];            // Tableau pour contenir les infos sous formes de cartes
+    indiceMax = nbJours-1;              //Evite les erreurs de segmentation plus tard
 
     // Token de l'API Météo Concept (clé d'authentification)
     const token = '83e0e2c124fdddb66c4a732aa8839d713fd07053a743e8ec040f584c8cbed32a';
@@ -115,16 +125,14 @@ async function rechercherMeteoParCodeINSEE(codeINSEE) {
             document.getElementById('texteBulle').innerHTML = "<p>Impossible de récupérer les infos météo.</p>";
         }
     }
-     // Appelle la fonction pour afficher les données météo dans la bulle de texte 
-     // A ENLEVER
-    afficherMeteo(tabWheatherCard[1]); 
+    afficherMeteo(tabWheatherCard[0]);
 }
 
 // Fonction pour afficher les données météo dans la bulle
 function afficherMeteo(WeatherCard) {
 
     // Mise à jour du contenu HTML de la bulle de texte avec les informations météo
-    const texteBulle = document.getElementById('texteBulle');
+    let texteBulle = document.getElementById('texteBulle');
 
     //On récupère le timestamp fourni par l'API et on le transforme en objet date plus malléable
     date = new Date(WeatherCard.date);
@@ -172,3 +180,23 @@ function calculerHeuresEnsoleillement(sunrise, sunset) {
     let totalSunlightMinutes = totalMinutesSunset - totalMinutesSunrise;
     return (totalSunlightMinutes / 60).toFixed(2); // Retourne la durée d'ensoleillement en heures
 }
+
+// Appelle la fonction pour afficher les données météo dans la bulle de texte 
+boutonDroite.addEventListener("click", () => {
+    if(indice <indiceMax){
+        indice = indice+1;
+    }else{
+        indice = 0;
+    }
+    afficherMeteo(tabWheatherCard[indice]);
+});
+boutonGauche.addEventListener("click", ()=>
+// Appelle la fonction pour afficher les données météo dans la bulle de texte 
+{
+    if(indice >0){
+        indice = indice-1;
+    }else{
+        indice = indiceMax;
+    }
+    afficherMeteo(tabWheatherCard[indice]);
+});
