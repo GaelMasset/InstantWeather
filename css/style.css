@@ -16,6 +16,18 @@
 
 }
 
+.range-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  }
+  
+  
+  .labels {
+  justify-content: space-between;
+  display: flex;
+  }
+
 #texteTitre{
   font-size: 0.7em;
   text-align: left;
