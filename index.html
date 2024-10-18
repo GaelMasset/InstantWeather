@@ -31,11 +31,64 @@
     <div class="flex-ligne2">
       <div class="flex-itemsligne2">
         <div class="pageParam" id="divOption">
-          <p><input type="checkbox" id="latitudeCheck" name="scales" class="checkboxStyle" /> Latitude</p>
-          <p><input type="checkbox" id="longitudeCheck" name="scales" class="checkboxStyle" /> Longitude</p>
-          <p><input type="checkbox" id="cumulPCheck" name="scales" class="checkboxStyle" /> Cumul de pluie aujourd'hui</p>
-          <p><input type="checkbox" id="ventMoyCheck" name="scales" class="checkboxStyle" /> Vent moyen</p>
-          <p><input type="checkbox" id="ventDirCheck" name="scales" class="checkboxStyle" /> Direction du vent</p>
+
+
+
+          <label class="flipBox" aria-label="Checkbox 1">
+            <input type="checkbox" id="latitudeCheck"/>
+            <span>Latitude</span>
+            <div class="flipBox_boxOuter">
+              <div class="flipBox_box">
+                <div></div><div></div><div></div><div></div><div></div><div></div>
+              </div>
+            </div>
+            <div class="flipBox_shadow"></div>
+          </label>
+
+          <label class="flipBox" aria-label="Checkbox 1">
+            <input type="checkbox" id="longitudeCheck"/>
+            <span>Longitude</span>
+            <div class="flipBox_boxOuter">
+              <div class="flipBox_box">
+                <div></div><div></div><div></div><div></div><div></div><div></div>
+              </div>
+            </div>
+            <div class="flipBox_shadow"></div>
+          </label>
+
+          <label class="flipBox" aria-label="Checkbox 1">
+            <input type="checkbox" id="cumulPCheck"/>
+            <span>Cumul de pluie aujourd'hui</span>
+            <div class="flipBox_boxOuter">
+              <div class="flipBox_box">
+                <div></div><div></div><div></div><div></div><div></div><div></div>
+              </div>
+            </div>
+            <div class="flipBox_shadow"></div>
+          </label>
+
+          <label class="flipBox" aria-label="Checkbox 1">
+            <input type="checkbox" id="ventMoyCheck"/>
+            <span>Vent moyen</span>
+            <div class="flipBox_boxOuter">
+              <div class="flipBox_box">
+                <div></div><div></div><div></div><div></div><div></div><div></div>
+              </div>
+            </div>
+            <div class="flipBox_shadow"></div>
+          </label>
+
+          <label class="flipBox" aria-label="Checkbox 1">
+            <input type="checkbox" id="ventDirCheck"/>
+            <span>Direction du vent</span>
+            <div class="flipBox_boxOuter">
+              <div class="flipBox_box">
+                <div></div><div></div><div></div><div></div><div></div><div></div>
+              </div>
+            </div>
+            <div class="flipBox_shadow"></div>
+          </label>
+
           <div class="range-container">
             <p>Nombre de jours à prévoir:</p>
             <input type="range" list="tickmarks" id="slider" min="1" max="7" value="1" step="1">
