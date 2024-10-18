@@ -12,7 +12,10 @@ class WeatherCard{
         this.ventMoyen = ventMoyen;
         this.ventDirection = ventDirection;
 
-        if(paramWeather>=7){
+        if((paramWeather<=32 && paramWeather>=20) || (paramWeather<=78 && paramWeather>=60) || (paramWeather>=120 && paramWeather<=142) || (paramWeather>=220 && paramWeather<=232)){
+            this.toobo = "images/toobo_froid.png"
+        }
+        else if(paramWeather>=7){
             this.toobo="images/toobo_pluie.png"
         }
         else if(paramWeather== 0){
