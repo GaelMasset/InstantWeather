@@ -11,11 +11,26 @@ class WeatherCard{
         this.cumulPluie = cumulPluie;
         this.ventMoyen = ventMoyen;
         this.ventDirection = ventDirection;
+
+        if(this.pluieProba>=50){
+            this.toobo="images/toobo_pluie.png"
+        }
+        else if(this.ensolHeures >=6){
+            this.toobo="images/toobo_golf.png"
+        }
+        else if(this.tempMin>= 15){
+            this.toobo="images/toobo_plage.png"
+        }
+        else{
+            this.toobo = "images/toobo_soleil_d.png"
+        }
     }
 
 }
 
 let entreeCodePostal = document.getElementById('inputCodePostal'); // Champs d'entrée pour le code postal
+
+let tooboImage = document.getElementById('imgToobo');
 
 //Variables associées aux checkbox 
 let latitude = document.getElementById('latitudeCheck');
@@ -161,8 +176,9 @@ function afficherMeteo(WeatherCard) {
         infosMeteo = infosMeteo + `<p>La direction du vent moyen en degrés, à 10m au-dessus du sol : ${WeatherCard.ventDirection}°</p>`;
     }
 
-
     texteBulle.innerHTML = infosMeteo;
+
+    tooboImage.src = WeatherCard.toobo;
 
 }
 
