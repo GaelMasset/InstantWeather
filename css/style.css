@@ -12,6 +12,7 @@
     font-family: "Kanit", sans-serif;
     font-weight: 600;
     font-style: normal;
+    
 
 }
 
@@ -36,8 +37,6 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 }
-
-
 
 
 #inputCodePostal{
@@ -69,10 +68,13 @@ body {
   display:block;
 }
 
+
+
+
 .pageParam{
   background-color: aliceblue;
   border: 3px solid black;
-  
+  display: none;
   border-radius: 10px;
 }
 
@@ -102,7 +104,7 @@ body {
 	width: 0;
 	height: 0;
 	border: 1.563em solid transparent;
-	border-top-color: #8babe6;
+	border-top-color: #ffffff;
 	border-bottom: 0;
 	border-right: 0;
 	margin-left: -0.781em;
@@ -110,13 +112,7 @@ body {
     
 }
 
-#premLigne{
-  min-height: 50%;
-}
 
-.remplir{
-  min-width: 15%;
-}
 
 .boutonBulleToobo{
   height: 100%;
@@ -146,23 +142,17 @@ body {
   background: linear-gradient(0.14turn, #70ca83, #8bf687);
 }
 
-.boutonSelectJour{
-  border: 3px solid black;
-  border-radius: 10px;
-  width: 3em;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  transition-duration: 0.2s ;
+#divOption{
+  padding: 5px;
 }
-.boutonSelectJour->p{
-  align-items: center;
-  font-size: 3em;
+
+.boutonBulleToobo{
+  width: 30px;
 }
-.boutonSelectJour:hover {opacity: 0.2}
 
 @media (width >= 720px) {
+
+  
 
   .select-bouton-container {
     display: flex;
@@ -192,12 +182,103 @@ body {
   }
 
 
-
+  .flex-ligne2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: stretch;
+    padding-top: 2em;
+  }
+  
+  .flex-itemsligne2:nth-child(1) {
+    display: block;
+    flex-grow: 2;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+  }
+  
+  .flex-itemsligne2:nth-child(2) {
+    display: block;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+    padding-left: 1em;
+  }
 
 
 }
 
 @media (width <= 720px) {
+
+  #texteTitre{
+    font-size: 0.5em;
+  }
+  #toggleButton{
+    font-size: 30px;
+  }
+  #divOption{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 0px;
+    padding: 5px;
+  }
+  #imgToobo{
+    width: 100%;
+  }
+
+  .speech-bubble {
+    position: relative;
+    background: linear-gradient(0turn, #ffffff, #c6e4e7);
+    border-radius: .4em;
+      border: solid black;
+      width: 66%;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  .speech-bubble > p{
+    font-size: 1em;
+  }
+
+  .select-bouton-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+  }
+  
+  .select-bouton-items:nth-child(1) {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-right: 4px solid black;
+  }
+  
+  .select-bouton-items:nth-child(2) {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+
     .flex-container {
 
         display: flex;
@@ -236,6 +317,37 @@ body {
         flex-shrink:1;
       }
 
+
+      .flex-ligne2 {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: flex-start;
+        align-content: stretch;
+        padding-top: 2em;
+      }
+      
+      .flex-itemsligne2:nth-child(1) {
+        display: block;
+        flex-grow: 2;
+        flex-shrink: 1;
+        flex-basis: auto;
+        align-self: auto;
+        order: 2;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .flex-itemsligne2:nth-child(2) {
+        display: block;
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: auto;
+        align-self: auto;
+        order: 1;
+        padding-left: 1em;
+      }
       
 }
 

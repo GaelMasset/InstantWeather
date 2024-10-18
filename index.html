@@ -1,18 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>INSTANT WEATHER</title>
-  </head>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <title>INSTANT WEATHER</title>
+</head>
 <header id="header">
-  <i class="fa-solid fa-cog fa-1x" id="toggleButton"></i><div id="texteTitre" style="display: inline-block;">La météo de Gulli</div>  
-  
+  <i class="fa-solid fa-cog fa-1x" id="toggleButton"></i>
+  <div id="texteTitre" style="display: inline-block;">La météo de Gulli</div>
+
 </header>
 <main>
   <div class="select-bouton-container">
@@ -22,58 +24,46 @@
     <div class="select-bouton-items">
       <select id="results"></select>
     </div>
- </div>
-
- <div class="flex-container">
-  <div class="flex-deuxieme-ligne pageParam" id="divOption">
-    <p><input type="checkbox" id="latitudeCheck" name="scales" class="checkboxStyle" />  Latitude</p>
-          <p><input type="checkbox" id="longitudeCheck" name="scales" class="checkboxStyle" />  Longitude</p>
-          <p><input type="checkbox" id="cumulPCheck" name="scales" class="checkboxStyle" />  Cumul de pluie aujourd'hui</p>
-          <p><input type="checkbox" id="ventMoyCheck" name="scales" class="checkboxStyle" />  Vent moyen</p>
-          <p><input type="checkbox" id="ventDirCheck" name="scales" class="checkboxStyle" />  Direction du vent</p>
-          <input type="range" id="slider" min="1" max="7" value="1" step="1">
   </div>
-  <div class="flex-deuxieme-ligne">
-    <!-- Texte dans la bulle / Image de toobo -->
-    <div class="speech-bubble">
-      <div class="flex-containerToobo">
-        <div class="flex-items">
-          <button class="boutonBulleToobo bordureDroite" id="boutonGauche">-</button>
-        </div>
-        <div class="flex-items">
-          <p id="texteBulle">je suis toobo</p>
-        </div>
-        <div class="flex-items">
-          <button class="boutonBulleToobo bordureGauche" id="boutonDroite">+</button>
+
+  <div class="flex-container">
+
+    <div class="flex-ligne2">
+      <div class="flex-itemsligne2">
+        <div class="pageParam" id="divOption">
+          <p><input type="checkbox" id="latitudeCheck" name="scales" class="checkboxStyle" /> Latitude</p>
+          <p><input type="checkbox" id="longitudeCheck" name="scales" class="checkboxStyle" /> Longitude</p>
+          <p><input type="checkbox" id="cumulPCheck" name="scales" class="checkboxStyle" /> Cumul de pluie aujourd'hui</p>
+          <p><input type="checkbox" id="ventMoyCheck" name="scales" class="checkboxStyle" /> Vent moyen</p>
+          <p><input type="checkbox" id="ventDirCheck" name="scales" class="checkboxStyle" /> Direction du vent</p>
+          <input type="range" id="slider" min="1" max="7" value="1" step="1">
         </div>
       </div>
-   
+      <div class="flex-itemsligne2">
+        <!-- Texte dans la bulle / Image de toobo -->
+        <div class="speech-bubble">
+          <div class="flex-containerToobo">
+            <div class="flex-items">
+              <button class="boutonBulleToobo bordureDroite" id="boutonGauche">-</button>
+            </div>
+            <div class="flex-items">
+              <br />
+              <p id="texteBulle">je suis toobo</p><br />
+            </div>
+            <div class="flex-items">
+              <button class="boutonBulleToobo bordureGauche" id="boutonDroite">+</button>
+            </div>
+          </div>
+
+        </div>
+        <img src="images/toobo_soleil_d.png" id="imgToobo"
+          alt="Toobo, le fameux présentateur de la météo sur la chaîne Gulli">
+      </div>
     </div>
-    <img src="images/toobo_soleil_d.png" id="imgToobo" alt="Toobo, le fameux présentateur de la météo sur la chaîne Gulli">
-  </div>
-</div>
-  
 
 
-  </div>
-    <!-- Partie Image -->
-    <div class="flex-container">
-        <div class="item1">
-         
-        </div>
-        <div class="item2 pageParam" id="divOption">
-         
-          
-         
-        </div>
-
-        <div class="item3">
-            
-        </div>
-    </div>
-   
 
     <script src="js/js.js"></script>
-  </main>
-</html>
+</main>
 
+</html>
