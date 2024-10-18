@@ -1,195 +1,204 @@
 
 #header{
-    background-color: #49a85e;
-    text-align: center;
-    padding-top: 0.2em;
-    padding-bottom: 0.2em;
-    background: linear-gradient(0.14turn, #49a85e, #8bf687);
-    border-bottom: rgb(0, 0, 0) 3px solid;
+  background-color: #49a85e;
+  text-align: center;
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  background: linear-gradient(0.14turn, #49a85e, #8bf687);
+  border-bottom: rgb(0, 0, 0) 3px solid;
 
-    color:rgb(0, 0, 0);
-    font-size: 3.5em;
-    font-family: "Kanit", sans-serif;
-    font-weight: 600;
-    font-style: normal;
+  color:rgb(0, 0, 0);
+  font-size: 3.5em;
+  font-family: "Kanit", sans-serif;
+  font-weight: 600;
+  font-style: normal;
 
 }
 
 #texteTitre{
-  font-size: 0.7em;
-  text-align: left;
+font-size: 0.7em;
+text-align: left;
 }
 
 #toggleButton{
-  float: left;
-  margin-left: 10px;
-  padding-top: 15px;
-  margin-bottom: auto;
-  overflow: auto;
-  position: relative;
+float: left;
+margin-left: 10px;
+padding-top: 15px;
+margin-bottom: auto;
+overflow: auto;
+position: relative;
 }
 
 body {
-    background-color: #bbdefb;
-    background-image: url('../images/fond.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+  background-color: #bbdefb;
+  background-image: url('../images/fond.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
+.range-container {
+display: flex;
+flex-direction: column;
+max-width: 400px;
+}
 
+.labels {
+justify-content: space-between;
+display: flex;
+}
 
 
 #inputCodePostal{
-  height: 70px;
-  width: 100%;
-  margin-top: 20px;
-  display: block;
-  margin: auto;
-  background-color: rgb(255, 255, 255);
-  border: 3px solid black;
-  border-top: 0px;
-  border-right: 0px;
+height: 70px;
+width: 100%;
+margin-top: 20px;
+display: block;
+margin: auto;
+background-color: rgb(255, 255, 255);
+border: 3px solid black;
+border-top: 0px;
+border-right: 0px;
 
 
-  text-align: center;
-  font-size: 2em;
+text-align: center;
+font-size: 2em;
 }
 
 #results{
-  height: 70px;
-  width: 100%;
-  background-color: rgb(255, 255, 255);
+height: 70px;
+width: 100%;
+background-color: rgb(255, 255, 255);
 
-  border: 3px solid black;
-  border-top: 0px;
-  text-align: center;
-  font-size: 2em;
-  align-items: center;
-  display:block;
+border: 3px solid black;
+border-top: 0px;
+text-align: center;
+font-size: 2em;
+align-items: center;
+display:block;
 }
 
 .pageParam{
-  background-color: aliceblue;
-  border: 3px solid black;
-  
-  border-radius: 10px;
+background-color: aliceblue;
+border: 3px solid black;
+
+border-radius: 10px;
 }
 
 .checkboxStyle{
-  height: 20px;
+height: 20px;
 }
 
 #imgToobo{
-    max-height: 30em;
-    text-align: left;
+  max-height: 30em;
+  text-align: left;
 }
 
 .speech-bubble {
-	position: relative;
-	background: linear-gradient(0.14turn, #b6e6ec, #c6e4e7);
-	border-radius: .4em;
-    border: solid black;
+position: relative;
+background: linear-gradient(0.14turn, #b6e6ec, #c6e4e7);
+border-radius: .4em;
+  border: solid black;
 }
 
 
 
 .speech-bubble:after {
-	content: '';
-	position: absolute;
-	bottom: 0;
-	left: 50%;
-	width: 0;
-	height: 0;
-	border: 1.563em solid transparent;
-	border-top-color: #8babe6;
-	border-bottom: 0;
-	border-right: 0;
-	margin-left: -0.781em;
-	margin-bottom: -1.562em;
-    
+content: '';
+position: absolute;
+bottom: 0;
+left: 50%;
+width: 0;
+height: 0;
+border: 1.563em solid transparent;
+border-top-color: #8babe6;
+border-bottom: 0;
+border-right: 0;
+margin-left: -0.781em;
+margin-bottom: -1.562em;
+  
 }
 
 #premLigne{
-  min-height: 50%;
+min-height: 50%;
 }
 
 .remplir{
-  min-width: 15%;
+min-width: 15%;
 }
 
 .boutonBulleToobo{
-  height: 100%;
-  width: 3em;
-  background: linear-gradient(0.14turn, #70ca83, #8bf687);
-  
+height: 100%;
+width: 3em;
+background: linear-gradient(0.14turn, #70ca83, #8bf687);
+
 }
 .bordureDroite{
-  border-right: 3px solid rgb(0, 0, 0);
-  border-left: 0px;
-  border-top: 0px;
-  border-bottom: 0px;
+border-right: 3px solid rgb(0, 0, 0);
+border-left: 0px;
+border-top: 0px;
+border-bottom: 0px;
 }
 .bordureGauche{
-  border-left: 3px solid rgb(0, 0, 0);
-  border-right: 0px;
-  border-top: 0px;
-  border-bottom: 0px;
+border-left: 3px solid rgb(0, 0, 0);
+border-right: 0px;
+border-top: 0px;
+border-bottom: 0px;
 }
 
 .boutonBulleToobo:hover{
-  background: linear-gradient(0.5turn, #70ca83, #8bf687);
+background: linear-gradient(0.5turn, #70ca83, #8bf687);
 
 }
 
 .boutonBulleToobo:active{
-  background: linear-gradient(0.14turn, #70ca83, #8bf687);
+background: linear-gradient(0.14turn, #70ca83, #8bf687);
 }
 
 .boutonSelectJour{
-  border: 3px solid black;
-  border-radius: 10px;
-  width: 3em;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  transition-duration: 0.2s ;
+border: 3px solid black;
+border-radius: 10px;
+width: 3em;
+margin-left: 0.5em;
+margin-right: 0.5em;
+margin-top: 0.5em;
+margin-bottom: 0.5em;
+transition-duration: 0.2s ;
 }
 .boutonSelectJour->p{
-  align-items: center;
-  font-size: 3em;
+align-items: center;
+font-size: 3em;
 }
 .boutonSelectJour:hover {opacity: 0.2}
 
 @media (width >= 720px) {
 
-  .select-bouton-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: flex-start;
-    align-content: stretch;
-  }
-  
-  .select-bouton-items:nth-child(1) {
-    display: block;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: auto;
-    align-self: auto;
-    order: 0;
-  }
-  
-  .select-bouton-items:nth-child(2) {
-    display: block;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: auto;
-    align-self: auto;
-    order: 0;
-  }
+.select-bouton-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: stretch;
+}
+
+.select-bouton-items:nth-child(1) {
+  display: block;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+}
+
+.select-bouton-items:nth-child(2) {
+  display: block;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+}
 
 
 
@@ -198,79 +207,80 @@ body {
 }
 
 @media (width <= 720px) {
-    .flex-container {
+  .flex-container {
 
-        display: flex;
-        
-        justify-content: space-evenly; 
-        align-items: center; 
-        /* flex-flow: column; */ 
-        flex-direction: column;  
-    
-        height: 100%;
-    
-      }
-    
-      .flex-container > div{
-        padding: 1px;
-      }
-    
-    
-      .item1 { 
-        /* flex:0 1 auto; */
-        flex-grow:0;
-        flex-shrink:1;
-      }
-                
-      .item2 { 
-        /* flex:1 1 auto; */
-        order:0;
-        flex-grow:1;
-        flex-shrink:1;
-        align-self:center;
-        
-      }
-                
-      .item3 { 
-        /* flex:0 1 auto; */
-        flex-shrink:1;
-      }
-
+      display: flex;
       
+      justify-content: space-evenly; 
+      align-items: center; 
+      /* flex-flow: column; */ 
+      flex-direction: column;  
+  
+      height: 100%;
+  
+    }
+  
+    .flex-container > div{
+      padding: 1px;
+    }
+  
+  
+    .item1 { 
+      /* flex:0 1 auto; */
+      flex-grow:0;
+      flex-shrink:1;
+    }
+              
+    .item2 { 
+      /* flex:1 1 auto; */
+      order:0;
+      flex-grow:1;
+      flex-shrink:1;
+      align-self:center;
+      
+    }
+              
+    .item3 { 
+      /* flex:0 1 auto; */
+      flex-shrink:1;
+    }
+
+    
 }
 
 .flex-containerToobo {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-    align-items: normal;
-  align-content: normal;
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+justify-content: space-between;
+  align-items: normal;
+align-content: normal;
 }
 
 .flex-items:nth-child(1) {
-  display: block;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: auto;
-  order: 0;
+display: block;
+flex-grow: 0;
+flex-shrink: 1;
+flex-basis: auto;
+align-self: auto;
+order: 0;
 }
 
 .flex-items:nth-child(2) {
-  display: block;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: auto;
-  order: 0;
+display: block;
+flex-grow: 0;
+flex-shrink: 1;
+flex-basis: auto;
+align-self: auto;
+order: 0;
 }
 
 .flex-items:nth-child(3) {
-  display: block;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: auto;
-  order: 0;
+display: block;
+flex-grow: 0;
+flex-shrink: 1;
+flex-basis: auto;
+align-self: auto;
+order: 0;
 }
+
