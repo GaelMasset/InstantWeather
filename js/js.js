@@ -12,15 +12,16 @@ class WeatherCard{
         this.ventMoyen = ventMoyen;
         this.ventDirection = ventDirection;
 
-        if(this.pluieProba>=50){
+        if(this.pluieProba>=60){
             this.toobo="images/toobo_pluie.png"
-        }
-        else if(this.ensolHeures >=6){
-            this.toobo="images/toobo_golf.png"
         }
         else if(this.tempMin>= 15){
             this.toobo="images/toobo_plage.png"
         }
+        else if(this.ensolHeures >=6){
+            this.toobo="images/toobo_golf.png"
+        }
+        
         else{
             this.toobo = "images/toobo_soleil_d.png"
         }
