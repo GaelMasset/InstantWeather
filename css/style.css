@@ -222,29 +222,19 @@ body {
   #toggleButton{
     font-size: 30px;
   }
-  #divOption{
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    margin: 0px;
-    padding: 5px;
-  }
+  
   #imgToobo{
     width: 100%;
   }
 
   .speech-bubble {
-    position: relative;
     background: linear-gradient(0turn, #ffffff, #c6e4e7);
-    border-radius: .4em;
-      border: solid black;
-      width: 66%;
-      margin-left: auto;
-      margin-right: auto;
+    border-radius: 4px;
+    border: solid black;
+    width: 95%;
+    margin: 0px;
   }
-  .speech-bubble > p{
-    font-size: 1em;
-  }
+
 
   .select-bouton-container {
     display: flex;
@@ -325,18 +315,16 @@ body {
         justify-content: center;
         align-items: flex-start;
         align-content: stretch;
-        padding-top: 2em;
       }
       
       .flex-itemsligne2:nth-child(1) {
-        display: block;
         flex-grow: 2;
         flex-shrink: 1;
-        flex-basis: auto;
-        align-self: auto;
-        order: 2;
-        margin-left: auto;
-        margin-right: auto;
+        order: 1;
+        align-self: center;
+        width: 95%;
+        margin-top: 5px;
+        margin-bottom: 5px;
       }
       
       .flex-itemsligne2:nth-child(2) {
@@ -345,7 +333,7 @@ body {
         flex-shrink: 1;
         flex-basis: auto;
         align-self: auto;
-        order: 1;
+        order: 2;
         padding-left: 1em;
       }
       
