@@ -1,6 +1,6 @@
 // Classe WeatherCard pour simplifier l'affichage d'informations
 class WeatherCard{
-    constructor(date, tempMax, tempMin, pluieProba, ensolHeures, latitude, longitude, cumulPluie, ventMoyen, ventDirection){
+    constructor(date, tempMax, tempMin, pluieProba, ensolHeures, latitude, longitude, cumulPluie, ventMoyen, ventDirection, paramWeather){
         this.date = date;
         this.tempMax = tempMax;
         this.tempMin = tempMin;
@@ -12,18 +12,18 @@ class WeatherCard{
         this.ventMoyen = ventMoyen;
         this.ventDirection = ventDirection;
 
-        if(this.pluieProba>=60){
+        if(paramWeather>=7){
             this.toobo="images/toobo_pluie.png"
         }
-        else if(this.tempMin>= 15){
+        else if(paramWeather== 0){
             this.toobo="images/toobo_plage.png"
         }
-        else if(this.ensolHeures >=6){
-            this.toobo="images/toobo_golf.png"
+        else if(paramWeather<=6){
+            this.toobo="images/toobo_soleil_d.png"
         }
         
         else{
-            this.toobo = "images/toobo_soleil_d.png"
+            this.toobo = "images/toobo_golf.png"
         }
     }
 
@@ -134,7 +134,7 @@ async function rechercherMeteoParCodeINSEE(codeINSEE) {
 
 
             //Crée une WeatherCard avec toutes les infos, peut importe si on les affiche
-            tabWheatherCard.push(new WeatherCard(forecast.datetime, forecast.tmax, forecast.tmin, forecast.probarain, forecast.sun_hours, forecast.latitude, forecast.longitude, forecast.rr10, forecast.gust10m, forecast.dirwind10m));
+            tabWheatherCard.push(new WeatherCard(forecast.datetime, forecast.tmax, forecast.tmin, forecast.probarain, forecast.sun_hours, forecast.latitude, forecast.longitude, forecast.rr10, forecast.gust10m, forecast.dirwind10m, forecast.weather));
 
         } catch (error) {
             console.error(error); // Affiche l'erreur dans la console en cas de problème
