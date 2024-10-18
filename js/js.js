@@ -62,7 +62,6 @@ async function rechercherVillesParCodePostal() {
 
     // Si des villes sont trouvées, on affiche la liste déroulante et on lance la recherche météo pour la première ville
     if (villes.length > 0) {
-        document.getElementById('results').style.display = 'flex';
 
         // Affiche les informations météo de la première ville par défaut
         rechercherMeteoParCodeINSEE(villes[0].properties.citycode);
@@ -74,8 +73,6 @@ async function rechercherVillesParCodePostal() {
                 rechercherMeteoParCodeINSEE(codeINSEE); // Recherche les informations météo de la ville sélectionnée
             }
         });
-    } else {
-        document.getElementById('results').style.display = 'none'; // Cache la liste s'il n'y a pas de résultats
     }
 
     
@@ -200,3 +197,15 @@ boutonGauche.addEventListener("click", ()=>
     }
     afficherMeteo(tabWheatherCard[indice]);
 });
+
+
+const toggleButton = document.getElementById('toggleButton');
+        const divOption = document.getElementById('divOption');
+
+        toggleButton.addEventListener('click', () => {
+            if (divOption.style.display === 'none' || divOption.style.display === '') {
+                divOption.style.display = 'block'; // Affiche le div
+            } else {
+                divOption.style.display = 'none'; // Cache le div
+            }
+        });

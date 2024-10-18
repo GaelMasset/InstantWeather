@@ -15,6 +15,20 @@
 
 }
 
+#texteTitre{
+  font-size: 0.7em;
+  text-align: left;
+}
+
+#toggleButton{
+  float: left;
+  margin-left: 10px;
+  padding-top: 15px;
+  margin-bottom: auto;
+  overflow: auto;
+  position: relative;
+}
+
 body {
     background-color: #bbdefb;
     background-image: url('../images/fond.png');
@@ -23,28 +37,36 @@ body {
     background-position: center;
 }
 
-#texteBulle{
-  text-align: center;
-}
+
 
 
 #inputCodePostal{
-  height: 60px;
-  background-color: aliceblue;
+  height: 70px;
+  width: 100%;
+  margin-top: 20px;
+  display: block;
+  margin: auto;
+  background-color: rgb(255, 255, 255);
   border: 3px solid black;
-  border-radius: 15px;
+  border-top: 0px;
+  border-right: 0px;
+
+
   text-align: center;
   font-size: 2em;
 }
+
 #results{
-  height: 60px;
-  background-color: aliceblue;
+  height: 70px;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+
   border: 3px solid black;
-  border-radius: 15px;
+  border-top: 0px;
   text-align: center;
   font-size: 2em;
   align-items: center;
-  display:none;
+  display:block;
 }
 
 .pageParam{
@@ -65,7 +87,7 @@ body {
 
 .speech-bubble {
 	position: relative;
-	background: #ffffff;
+	background: linear-gradient(0.14turn, #b6e6ec, #c6e4e7);
 	border-radius: .4em;
     border: solid black;
 }
@@ -80,7 +102,7 @@ body {
 	width: 0;
 	height: 0;
 	border: 1.563em solid transparent;
-	border-top-color: #ffffff;
+	border-top-color: #8babe6;
 	border-bottom: 0;
 	border-right: 0;
 	margin-left: -0.781em;
@@ -94,6 +116,34 @@ body {
 
 .remplir{
   min-width: 15%;
+}
+
+.boutonBulleToobo{
+  height: 100%;
+  width: 3em;
+  background: linear-gradient(0.14turn, #70ca83, #8bf687);
+  
+}
+.bordureDroite{
+  border-right: 3px solid rgb(0, 0, 0);
+  border-left: 0px;
+  border-top: 0px;
+  border-bottom: 0px;
+}
+.bordureGauche{
+  border-left: 3px solid rgb(0, 0, 0);
+  border-right: 0px;
+  border-top: 0px;
+  border-bottom: 0px;
+}
+
+.boutonBulleToobo:hover{
+  background: linear-gradient(0.5turn, #70ca83, #8bf687);
+
+}
+
+.boutonBulleToobo:active{
+  background: linear-gradient(0.14turn, #70ca83, #8bf687);
 }
 
 .boutonSelectJour{
@@ -113,50 +163,38 @@ body {
 .boutonSelectJour:hover {opacity: 0.2}
 
 @media (width >= 720px) {
-.flex-container {
 
+  .select-bouton-container {
     display: flex;
-    
-    justify-content: space-evenly; 
-    align-items: center; 
-    /* flex-flow: row; */ 
-    flex-direction: row;  
-
-    height: 100%;
-    padding: 15px;
-    gap: 5px;
-
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: stretch;
+  }
+  
+  .select-bouton-items:nth-child(1) {
+    display: block;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+  }
+  
+  .select-bouton-items:nth-child(2) {
+    display: block;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
   }
 
-  .flex-container > div{
-    padding: 8px;
-  }
 
 
-  .item1 { 
-    /* flex:0 1 auto; */
-    flex-grow:0;
-    flex-shrink:1;
-  }
-			
-  .item2 { 
-    /* flex:1 1 auto; */
-    order:0;
-    flex-grow:1;
-    flex-shrink:1;
-    align-self: stretch;
-    text-align: center;
-  }
-			
-  .item3 { 
-    /* flex:0 1 auto; */
-    flex-shrink:1;
-    text-align: center;
-  }
 
-  .pageParam{
-    height: 50%;
-  }
+
 }
 
 @media (width <= 720px) {
@@ -170,13 +208,11 @@ body {
         flex-direction: column;  
     
         height: 100%;
-        padding: 15px;
-        gap: 5px;
     
       }
     
       .flex-container > div{
-        padding: 8px;
+        padding: 1px;
       }
     
     
