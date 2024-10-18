@@ -160,7 +160,10 @@ body {
 }
 
 @media (width >= 720px) {
-
+  
+  #imgToobo{
+    width: 50%;
+  }
   
 
   .select-bouton-container {
