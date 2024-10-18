@@ -1,4 +1,5 @@
 
+/*Le header du site*/
 #header{
     background-color: #49a85e;
     text-align: center;
@@ -12,27 +13,27 @@
     font-family: "Kanit", sans-serif;
     font-weight: 600;
     font-style: normal;
-    
-
 }
 
-.range-container {
-  display: flex;
-  flex-direction: column;
-  max-width: 400px;
-  }
-  
-  
-  .labels {
-  justify-content: space-between;
-  display: flex;
-  }
-
+/*Titre dans le header*/
 #texteTitre{
   font-size: 0.7em;
   text-align: left;
 }
 
+/*Barre de défilement*/
+.range-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+.labels {
+  justify-content: space-between;
+  display: flex;
+}
+
+/*Icone de paramètres*/
 #toggleButton{
   float: left;
   margin-left: 10px;
@@ -42,6 +43,7 @@
   position: relative;
 }
 
+/*Fond du site*/
 body {
     background-color: #bbdefb;
     background-image: url('../images/fond.png');
@@ -50,7 +52,7 @@ body {
     background-position: center;
 }
 
-
+/*Bouton ou l'on écrit le code postal*/
 #inputCodePostal{
   height: 70px;
   width: 100%;
@@ -61,12 +63,11 @@ body {
   border: 3px solid black;
   border-top: 0px;
   border-right: 0px;
-
-
   text-align: center;
   font-size: 2em;
 }
 
+/*Resultat cliquable ou les communes apparaissent*/
 #results{
   height: 70px;
   width: 100%;
@@ -80,9 +81,7 @@ body {
   display:block;
 }
 
-
-
-
+/*La page pour choisir ce que l'on veut voir*/
 .pageParam{
   background-color: aliceblue;
   border: 3px solid black;
@@ -95,8 +94,8 @@ body {
 }
 
 #imgToobo{
-    max-height: 30em;
-    text-align: left;
+  margin-left: auto;
+  margin-right: auto;    
 }
 
 .speech-bubble {
@@ -105,8 +104,6 @@ body {
 	border-radius: .4em;
     border: solid black;
 }
-
-
 
 .speech-bubble:after {
 	content: '';
@@ -211,6 +208,7 @@ body {
     flex-basis: auto;
     align-self: auto;
     order: 0;
+    margin-left: 10px;
   }
   
   .flex-itemsligne2:nth-child(2) {
@@ -219,10 +217,51 @@ body {
     flex-shrink: 1;
     flex-basis: auto;
     align-self: auto;
+    margin-left: 10px;
+    margin-right: 10px;
     order: 0;
-    padding-left: 1em;
   }
 
+  .flex-itemsligne2:nth-child(2) > #imgToobo {
+    margin-left: 10em;
+  }
+
+  
+.flex-containerToobo {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+    align-items: normal;
+  align-content: normal;
+}
+
+.flex-items:nth-child(1) {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+}
+
+.flex-items:nth-child(2) {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+}
+
+.flex-items:nth-child(3) {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto;
+  order: 0;
+}
 
 }
 
@@ -349,40 +388,4 @@ body {
         padding-left: 1em;
       }
       
-}
-
-.flex-containerToobo {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-    align-items: normal;
-  align-content: normal;
-}
-
-.flex-items:nth-child(1) {
-  display: block;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: auto;
-  order: 0;
-}
-
-.flex-items:nth-child(2) {
-  display: block;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: auto;
-  order: 0;
-}
-
-.flex-items:nth-child(3) {
-  display: block;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: auto;
-  order: 0;
 }
