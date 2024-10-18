@@ -50,6 +50,8 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    perspective: 750px;
+    
 }
 
 /*Bouton ou l'on écrit le code postal*/
@@ -436,13 +438,7 @@ body {
   box-sizing: border-box;
 }
 
-body {
-  min-height: 100vh;
-  margin: 0;
-  display: block;
-  place-items: center;
-  perspective: 750px;
-}
+
 
 *:not(:empty) {
   transform-style: preserve-3d;
