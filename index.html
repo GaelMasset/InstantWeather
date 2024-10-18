@@ -12,7 +12,7 @@
   <title>INSTANT WEATHER</title>
 </head>
 <header id="header">
-  <i class="fa-solid fa-cog fa-1x" id="toggleButton"></i>
+  <i class="fa-solid fa-cog fa-1x iconeRouage" id="toggleButton"></i>
   <div id="texteTitre" style="display: inline-block;">La météo de Gulli</div>
 
 </header>
@@ -36,7 +36,19 @@
           <p><input type="checkbox" id="cumulPCheck" name="scales" class="checkboxStyle" /> Cumul de pluie aujourd'hui</p>
           <p><input type="checkbox" id="ventMoyCheck" name="scales" class="checkboxStyle" /> Vent moyen</p>
           <p><input type="checkbox" id="ventDirCheck" name="scales" class="checkboxStyle" /> Direction du vent</p>
-          <input type="range" id="slider" min="1" max="7" value="1" step="1">
+          <div class="range-container">
+            <p>Nombre de jours à prévoir:</p>
+            <input type="range" list="tickmarks" id="slider" min="1" max="7" value="1" step="1">
+            <div class="labels">
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+              <span>4</span>
+              <span>5</span>
+              <span>6</span>
+              <span>7</span>
+            </div>
+            </div>
         </div>
       </div>
       <div class="flex-itemsligne2">
