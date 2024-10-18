@@ -12,7 +12,22 @@
     font-family: "Kanit", sans-serif;
     font-weight: 600;
     font-style: normal;
+    
 
+}
+
+#texteTitre{
+  font-size: 0.7em;
+  text-align: left;
+}
+
+#toggleButton{
+  float: left;
+  margin-left: 10px;
+  padding-top: 15px;
+  margin-bottom: auto;
+  overflow: auto;
+  position: relative;
 }
 
 body {
@@ -23,34 +38,43 @@ body {
     background-position: center;
 }
 
-#texteBulle{
-  text-align: center;
-}
-
 
 #inputCodePostal{
-  height: 60px;
-  background-color: aliceblue;
+  height: 70px;
+  width: 100%;
+  margin-top: 20px;
+  display: block;
+  margin: auto;
+  background-color: rgb(255, 255, 255);
   border: 3px solid black;
-  border-radius: 15px;
+  border-top: 0px;
+  border-right: 0px;
+
+
   text-align: center;
   font-size: 2em;
 }
+
 #results{
-  height: 60px;
-  background-color: aliceblue;
+  height: 70px;
+  width: 100%;
+  background-color: rgb(255, 255, 255);
+
   border: 3px solid black;
-  border-radius: 15px;
+  border-top: 0px;
   text-align: center;
   font-size: 2em;
   align-items: center;
-  display:none;
+  display:block;
 }
+
+
+
 
 .pageParam{
   background-color: aliceblue;
   border: 3px solid black;
-  
+  display: none;
   border-radius: 10px;
 }
 
@@ -65,7 +89,7 @@ body {
 
 .speech-bubble {
 	position: relative;
-	background: #ffffff;
+	background: linear-gradient(0.14turn, #b6e6ec, #c6e4e7);
 	border-radius: .4em;
     border: solid black;
 }
@@ -88,78 +112,173 @@ body {
     
 }
 
-#premLigne{
-  min-height: 50%;
-}
 
-.remplir{
-  min-width: 15%;
-}
 
-.boutonSelectJour{
-  border: 3px solid black;
-  border-radius: 10px;
+.boutonBulleToobo{
+  height: 100%;
   width: 3em;
-  margin-left: 0.5em;
-  margin-right: 0.5em;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  transition-duration: 0.2s ;
+  background: linear-gradient(0.14turn, #70ca83, #8bf687);
+  
 }
-.boutonSelectJour->p{
-  align-items: center;
-  font-size: 3em;
+.bordureDroite{
+  border-right: 3px solid rgb(0, 0, 0);
+  border-left: 0px;
+  border-top: 0px;
+  border-bottom: 0px;
 }
-.boutonSelectJour:hover {opacity: 0.2}
+.bordureGauche{
+  border-left: 3px solid rgb(0, 0, 0);
+  border-right: 0px;
+  border-top: 0px;
+  border-bottom: 0px;
+}
+
+.boutonBulleToobo:hover{
+  background: linear-gradient(0.5turn, #70ca83, #8bf687);
+
+}
+
+.boutonBulleToobo:active{
+  background: linear-gradient(0.14turn, #70ca83, #8bf687);
+}
+
+#divOption{
+  padding: 5px;
+}
+
+.boutonBulleToobo{
+  width: 30px;
+}
 
 @media (width >= 720px) {
-.flex-container {
 
+  
+
+  .select-bouton-container {
     display: flex;
-    
-    justify-content: space-evenly; 
-    align-items: center; 
-    /* flex-flow: row; */ 
-    flex-direction: row;  
-
-    height: 100%;
-    padding: 15px;
-    gap: 5px;
-
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: stretch;
+  }
+  
+  .select-bouton-items:nth-child(1) {
+    display: block;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+  }
+  
+  .select-bouton-items:nth-child(2) {
+    display: block;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
   }
 
-  .flex-container > div{
-    padding: 8px;
+
+  .flex-ligne2 {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: stretch;
+    padding-top: 2em;
+  }
+  
+  .flex-itemsligne2:nth-child(1) {
+    display: block;
+    flex-grow: 2;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+  }
+  
+  .flex-itemsligne2:nth-child(2) {
+    display: block;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+    padding-left: 1em;
   }
 
 
-  .item1 { 
-    /* flex:0 1 auto; */
-    flex-grow:0;
-    flex-shrink:1;
-  }
-			
-  .item2 { 
-    /* flex:1 1 auto; */
-    order:0;
-    flex-grow:1;
-    flex-shrink:1;
-    align-self: stretch;
-    text-align: center;
-  }
-			
-  .item3 { 
-    /* flex:0 1 auto; */
-    flex-shrink:1;
-    text-align: center;
-  }
-
-  .pageParam{
-    height: 50%;
-  }
 }
 
 @media (width <= 720px) {
+
+  #texteTitre{
+    font-size: 0.5em;
+  }
+  #toggleButton{
+    font-size: 30px;
+  }
+  #divOption{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin: 0px;
+    padding: 5px;
+  }
+  #imgToobo{
+    width: 100%;
+  }
+
+  .speech-bubble {
+    position: relative;
+    background: linear-gradient(0turn, #ffffff, #c6e4e7);
+    border-radius: .4em;
+      border: solid black;
+      width: 66%;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  .speech-bubble > p{
+    font-size: 1em;
+  }
+
+  .select-bouton-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+  }
+  
+  .select-bouton-items:nth-child(1) {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    border-right: 4px solid black;
+  }
+  
+  .select-bouton-items:nth-child(2) {
+    display: block;
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+    align-self: auto;
+    order: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+
     .flex-container {
 
         display: flex;
@@ -170,13 +289,11 @@ body {
         flex-direction: column;  
     
         height: 100%;
-        padding: 15px;
-        gap: 5px;
     
       }
     
       .flex-container > div{
-        padding: 8px;
+        padding: 1px;
       }
     
     
@@ -200,6 +317,37 @@ body {
         flex-shrink:1;
       }
 
+
+      .flex-ligne2 {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: flex-start;
+        align-content: stretch;
+        padding-top: 2em;
+      }
+      
+      .flex-itemsligne2:nth-child(1) {
+        display: block;
+        flex-grow: 2;
+        flex-shrink: 1;
+        flex-basis: auto;
+        align-self: auto;
+        order: 2;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      .flex-itemsligne2:nth-child(2) {
+        display: block;
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: auto;
+        align-self: auto;
+        order: 1;
+        padding-left: 1em;
+      }
       
 }
 
