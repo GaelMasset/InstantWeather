@@ -1,10 +1,10 @@
 
 /*Le header du site*/
-#header{
-    background-color: #49a85e;
+
+  #header{
     text-align: center;
-    padding-top: 0.2em;
-    padding-bottom: 0.2em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
     background: linear-gradient(0.14turn, #49a85e, #8bf687);
     border-bottom: rgb(0, 0, 0) 3px solid;
 
@@ -13,21 +13,24 @@
     font-family: "Kanit", sans-serif;
     font-weight: 600;
     font-style: normal;
+
 }
 
-/*Titre dans le header*/
-#texteTitre{
-  font-size: 0.7em;
-  text-align: left;
-}
+@media (width < 800){
+  #header{
+    text-align: center;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    background: linear-gradient(0.14turn, #49a85e, #8bf687);
+    border-bottom: rgb(0, 0, 0) 3px solid;
 
-/*Barre de défilement*/
-.range-container {
-  display: flex;
-  flex-direction: column;
-  max-width: 400px;
+    color:rgb(0, 0, 0);
+    font-size: 3.5em;
+    font-family: "Kanit", sans-serif;
+    font-weight: 600;
+  font-size: 2em;
+  }
 }
-
 .labels {
   justify-content: space-between;
   display: flex;
@@ -36,7 +39,6 @@
 /*Icone de paramètres*/
 #toggleButton{
   float: left;
-  margin-left: 10px;
   padding-top: 15px;
   margin-bottom: auto;
   overflow: auto;
@@ -56,11 +58,8 @@ body {
 
 /*Bouton ou l'on écrit le code postal*/
 #inputCodePostal{
-  height: 70px;
+  height: 100%;
   width: 100%;
-  margin-top: 20px;
-  display: block;
-  margin: auto;
   background-color: rgb(255, 255, 255);
   border: 3px solid black;
   border-top: 0px;
@@ -71,16 +70,13 @@ body {
 
 /*Resultat cliquable ou les communes apparaissent*/
 #results{
-  height: 70px;
+  height: 100%;
   width: 100%;
   background-color: rgb(255, 255, 255);
-
   border: 3px solid black;
   border-top: 0px;
   text-align: center;
   font-size: 2em;
-  align-items: center;
-  display:block;
 }
 
 /*La page pour choisir ce que l'on veut voir*/
@@ -91,20 +87,16 @@ body {
   border-radius: 10px;
 }
 
-.checkboxStyle{
-  height: 20px;
-}
-
-#imgToobo{
-  margin-left: auto;
-  margin-right: auto;    
+#imgToobo {
+  max-height: 100%; /* Limite la hauteur de l'image à celle de son conteneur */
+  width: auto; /* Garde les proportions de l'image en ajustant la largeur automatiquement */
+  object-fit: contain; /* Conserve les proportions de l'image */
 }
 
 .speech-bubble {
-	position: relative;
 	background: linear-gradient(0.14turn, #b6e6ec, #c6e4e7);
 	border-radius: .4em;
-    border: solid black;
+  border: solid black;
 }
 
 .speech-bubble:after {
@@ -123,13 +115,18 @@ body {
     
 }
 
-
-
 .boutonBulleToobo{
   height: 100%;
   width: 3em;
   background: linear-gradient(0.14turn, #70ca83, #8bf687);
   
+}
+
+#boutonDroite{
+  width: 100% ;
+}
+#boutonGauche{
+  width: 100%;
 }
 .bordureDroite{
   border-right: 3px solid rgb(0, 0, 0);
@@ -161,275 +158,7 @@ body {
   width: 30px;
 }
 
-@media (width >= 720px) {
-  
-  #imgToobo{
-    width: 50%;
-  }
-  
 
-  .select-bouton-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: flex-start;
-    align-content: stretch;
-  }
-  
-  .select-bouton-items:nth-child(1) {
-    display: block;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: auto;
-    align-self: auto;
-    order: 0;
-  }
-  
-  .select-bouton-items:nth-child(2) {
-    display: block;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: auto;
-    align-self: auto;
-    order: 0;
-  }
-
-
-  .flex-ligne2 {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-items: flex-start;
-    align-content: stretch;
-    padding-top: 2em;
-  }
-  
-  .flex-itemsligne2:nth-child(1) {
-    display: block;
-    flex-grow: 2;
-    flex-shrink: 1;
-    flex-basis: auto;
-    align-self: auto;
-    order: 0;
-    margin-left: 10px;
-  }
-  
-  .flex-itemsligne2:nth-child(2) {
-    display: block;
-    flex-grow: 1;
-    flex-shrink: 1;
-    flex-basis: auto;
-    align-self: auto;
-    margin-left: 10px;
-    margin-right: 10px;
-    order: 0;
-  }
-
-  .flex-itemsligne2:nth-child(2) > #imgToobo {
-    margin-left: 10em;
-  }
-
-  
-.flex-containerToobo {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: space-between;
-    align-items: normal;
-  align-content: normal;
-}
-
-.flex-items:nth-child(1) {
-  display: block;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: auto;
-  order: 0;
-}
-
-.flex-items:nth-child(2) {
-  display: block;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: auto;
-  order: 0;
-}
-
-.flex-items:nth-child(3) {
-  display: block;
-  flex-grow: 0;
-  flex-shrink: 1;
-  flex-basis: auto;
-  align-self: auto;
-  order: 0;
-}
-
-}
-
-@media (width <= 720px) {
-
-  #texteTitre{
-    font-size: 0.5em;
-  }
-  #toggleButton{
-    font-size: 30px;
-  }
-  
-  #imgToobo{
-    width: 100%;
-  }
-
-  .speech-bubble {
-    background: linear-gradient(0turn, #ffffff, #c6e4e7);
-    border-radius: 4px;
-    border: solid black;
-    width: 95%;
-    margin: 0px;
-  }
-
-
-  .select-bouton-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    align-items: stretch;
-    align-content: stretch;
-  }
-  
-  .select-bouton-items:nth-child(1) {
-    display: block;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: auto;
-    align-self: auto;
-    order: 0;
-    margin-left: 10px;
-    margin-right: 10px;
-    border-right: 4px solid black;
-  }
-  
-  .select-bouton-items:nth-child(2) {
-    display: block;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: auto;
-    align-self: auto;
-    order: 0;
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-
-  .flex-containerToobo {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-      align-items: normal;
-    align-content: normal;
-  }
-  
-  .flex-items:nth-child(1) {
-    display: block;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: auto;
-    align-self: auto;
-    order: 0;
-  }
-  
-  .flex-items:nth-child(2) {
-    display: block;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: auto;
-    align-self: auto;
-    order: 0;
-  }
-  
-  .flex-items:nth-child(3) {
-    display: block;
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: auto;
-    align-self: auto;
-    order: 0;
-  }
-
-
-    .flex-container {
-
-        display: flex;
-        
-        justify-content: space-evenly; 
-        align-items: center; 
-        /* flex-flow: column; */ 
-        flex-direction: column;  
-    
-        height: 100%;
-    
-      }
-    
-      .flex-container > div{
-        padding: 1px;
-      }
-    
-    
-      .item1 { 
-        /* flex:0 1 auto; */
-        flex-grow:0;
-        flex-shrink:1;
-      }
-                
-      .item2 { 
-        /* flex:1 1 auto; */
-        order:0;
-        flex-grow:1;
-        flex-shrink:1;
-        align-self:center;
-        
-      }
-                
-      .item3 { 
-        /* flex:0 1 auto; */
-        flex-shrink:1;
-      }
-
-
-      .flex-ligne2 {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-items: flex-start;
-        align-content: stretch;
-      }
-      
-      .flex-itemsligne2:nth-child(1) {
-        flex-grow: 2;
-        flex-shrink: 1;
-        order: 1;
-        align-self: center;
-        width: 95%;
-        margin-top: 5px;
-        margin-bottom: 5px;
-      }
-      
-      .flex-itemsligne2:nth-child(2) {
-        display: block;
-        flex-grow: 1;
-        flex-shrink: 1;
-        flex-basis: auto;
-        align-self: auto;
-        order: 2;
-        padding-left: 1em;
-      }
-      
-}
 
 
 

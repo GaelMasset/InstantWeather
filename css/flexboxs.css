@@ -1,0 +1,134 @@
+@media (width > 800px){
+
+.container-10-15-75-col {
+  display: block;
+  flex-direction: column; /* Disposition en colonne */
+  height: 100%; /* Hauteur totale du conteneur */
+  }
+  .child-10-15-75-col:nth-child(1) {
+    flex: 0 0 7%; /* Prend 25% de la hauteur */
+  }
+  .child-10-15-75-col:nth-child(2) {
+    flex: 0 0 12%; /* Prend 25% de la hauteur */
+  }
+  .child-10-15-75-col:nth-child(3) {
+    flex: 0 0 81%; /* Prend 75% de la hauteur */
+    margin-top: 50px;
+
+  }
+  
+
+.container-50-50-lig{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+.child-50-50-lig:nth-child(1){
+    flex: 0 0 50%;
+}
+.child-50-50-lig:nth-child(2){
+    flex: 0 0 50%;
+}
+
+.container-25-75-lig{
+    display:flex;
+    flex-direction: row;
+    width:100%;
+    overflow:scroll;
+}
+.child-25-75-lig:nth-child(1){
+    flex: 1 1 25%;
+}
+.child-25-75-lig:nth-child(2){
+    flex: 1 1 60%;
+}
+
+
+.container-10-80-10-col{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    overflow: hidden;
+}
+.child-10-80-10-col:nth-child(1){
+    flex: 0 0 5%;
+}
+.child-10-80-10-col:nth-child(2){
+    flex: 1 1 90%;
+    padding-left: 2%;
+}
+.child-10-80-10-col:nth-child(3){
+    flex: 0 0 5%;
+}
+}
+
+
+
+
+
+
+
+
+@media (width < 800px){
+
+    .container-10-15-75-col {
+      display: block;
+      flex-direction: column; /* Disposition en colonne */
+      height: 100%; /* Hauteur totale du conteneur */
+      }
+      .child-10-15-75-col:nth-child(1) {
+        flex: 0 0 7%; /* Prend 25% de la hauteur */
+      }
+      .child-10-15-75-col:nth-child(2) {
+        flex: 0 0 12%; /* Prend 25% de la hauteur */
+      }
+      .child-10-15-75-col:nth-child(3) {
+        flex: 0 0 81%; /* Prend 75% de la hauteur */
+        margin-top: 50px;
+    
+      }
+      
+    
+    .container-50-50-lig{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    .child-50-50-lig:nth-child(1){
+        flex: 0 0 50%;
+    }
+    .child-50-50-lig:nth-child(2){
+        flex: 0 0 50%;
+    }
+    
+    .container-25-75-lig{
+        display:flex;
+        flex-direction: column;
+        width:100%;
+        overflow:scroll;
+    }
+    .child-25-75-lig:nth-child(1){
+        flex: 1 1 40%;
+    }
+    .child-25-75-lig:nth-child(2){
+        flex: 1 1 60%;
+    }
+    
+    
+    .container-10-80-10-col{
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        overflow: hidden;
+    }
+    .child-10-80-10-col:nth-child(1){
+        flex: 0 0 5%;
+    }
+    .child-10-80-10-col:nth-child(2){
+        flex: 1 1 90%;
+        padding-left: 2%;
+    }
+    .child-10-80-10-col:nth-child(3){
+        flex: 0 0 5%;
+    }
+    }
