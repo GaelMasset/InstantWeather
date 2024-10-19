@@ -1,134 +1,150 @@
-@media (width > 800px){
-
-.container-10-15-75-col {
-  display: block;
-  flex-direction: column; /* Disposition en colonne */
-  height: 100%; /* Hauteur totale du conteneur */
-  }
-  .child-10-15-75-col:nth-child(1) {
-    flex: 0 0 7%; /* Prend 25% de la hauteur */
-  }
-  .child-10-15-75-col:nth-child(2) {
-    flex: 0 0 12%; /* Prend 25% de la hauteur */
-  }
-  .child-10-15-75-col:nth-child(3) {
-    flex: 0 0 81%; /* Prend 75% de la hauteur */
-    margin-top: 50px;
-
+/* Pour les écrans supérieurs à 800px */
+@media (min-width: 800px) {
+    .container-10-15-75-col {
+      display: flex; /* Change 'block' en 'flex' pour un conteneur flexible */
+      flex-direction: column;
+      height: 100%; /* Prend toute la hauteur disponible */
+      overflow: hidden; /* Empêche les enfants de déborder */
+    }
+  
+    .child-10-15-75-col:nth-child(1) {
+      flex: 0 0 7%; /* Fixe à 7% de la hauteur */
+    }
+  
+    .child-10-15-75-col:nth-child(2) {
+      flex: 0 0 12%; /* Fixe à 12% de la hauteur */
+    }
+  
+    .child-10-15-75-col:nth-child(3) {
+      flex: 0 0 81%; /* Fixe à 81% de la hauteur */
+      margin-top: 50px; /* Espace entre les enfants */
+      overflow: auto; /* Ajoute un défilement si le contenu dépasse */
+    }
+  
+    .container-50-50-lig {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+    }
+  
+    .child-50-50-lig:nth-child(1),
+    .child-50-50-lig:nth-child(2) {
+      flex: 1 1 50%; /* Les enfants prennent chacun 50% */
+      overflow: hidden; /* Empêche les débordements */
+    }
+  
+    .container-25-75-lig {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      overflow: hidden; /* Empêche les enfants de déborder */
+    }
+  
+    .child-25-75-lig:nth-child(1) {
+      flex: 1 1 25%;
+      padding-left: 10px;
+    }
+  
+    .child-25-75-lig:nth-child(2) {
+      flex: 1 1 75%;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    .child-25-75-lig:nth-child(2) > img {
+        padding-left: 150px;
+      }
+  
+    .container-10-80-10-col {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      overflow: hidden;
+    }
+  
+    .child-10-80-10-col:nth-child(1),
+    .child-10-80-10-col:nth-child(3) {
+      flex: 0 0 5%; /* Fixe à 5% de la largeur */
+    }
+  
+    .child-10-80-10-col:nth-child(2) {
+      flex: 1 1 90%;
+      padding-left: 2%;
+      overflow: auto; /* Permet un défilement si le contenu est trop grand */
+    }
   }
   
-
-.container-50-50-lig{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-}
-.child-50-50-lig:nth-child(1){
-    flex: 0 0 50%;
-}
-.child-50-50-lig:nth-child(2){
-    flex: 0 0 50%;
-}
-
-.container-25-75-lig{
-    display:flex;
-    flex-direction: row;
-    width:100%;
-    overflow:scroll;
-}
-.child-25-75-lig:nth-child(1){
-    flex: 1 1 25%;
-}
-.child-25-75-lig:nth-child(2){
-    flex: 1 1 60%;
-}
-
-
-.container-10-80-10-col{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    overflow: hidden;
-}
-.child-10-80-10-col:nth-child(1){
-    flex: 0 0 5%;
-}
-.child-10-80-10-col:nth-child(2){
-    flex: 1 1 90%;
-    padding-left: 2%;
-}
-.child-10-80-10-col:nth-child(3){
-    flex: 0 0 5%;
-}
-}
-
-
-
-
-
-
-
-
-@media (width < 800px){
-
+  /* Pour les écrans inférieurs à 800px */
+  @media (max-width: 800px) {
     .container-10-15-75-col {
-      display: block;
-      flex-direction: column; /* Disposition en colonne */
-      height: 100%; /* Hauteur totale du conteneur */
-      }
-      .child-10-15-75-col:nth-child(1) {
-        flex: 0 0 7%; /* Prend 25% de la hauteur */
-      }
-      .child-10-15-75-col:nth-child(2) {
-        flex: 0 0 12%; /* Prend 25% de la hauteur */
-      }
-      .child-10-15-75-col:nth-child(3) {
-        flex: 0 0 81%; /* Prend 75% de la hauteur */
-        margin-top: 50px;
-    
-      }
-      
-    
-    .container-50-50-lig{
-        display: flex;
-        flex-direction: column;
-        width: 100%;
+      display: flex; /* Change 'block' en 'flex' pour un conteneur flexible */
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden; /* Empêche les enfants de déborder */
     }
-    .child-50-50-lig:nth-child(1){
-        flex: 0 0 50%;
+  
+    .child-10-15-75-col:nth-child(1) {
+      flex: 0 0 7%;
     }
-    .child-50-50-lig:nth-child(2){
-        flex: 0 0 50%;
+  
+    .child-10-15-75-col:nth-child(2) {
+      flex: 0 0 12%;
     }
-    
-    .container-25-75-lig{
-        display:flex;
-        flex-direction: column;
-        width:100%;
-        overflow:scroll;
+  
+    .child-10-15-75-col:nth-child(3) {
+      flex: 0 0 81%;
+      margin-top: 50px;
+      overflow: auto;
     }
-    .child-25-75-lig:nth-child(1){
-        flex: 1 1 40%;
+  
+    .container-50-50-lig {
+      display: flex;
+      flex-direction: column; /* Change en colonne pour les petits écrans */
+      width: 100%;
     }
-    .child-25-75-lig:nth-child(2){
-        flex: 1 1 60%;
+  
+    .child-50-50-lig:nth-child(1),
+    .child-50-50-lig:nth-child(2) {
+      flex: 1 1 50%; /* Permet aux enfants de prendre de la place tout en restant flexibles */
+      overflow: hidden;
+      padding-left: 20px;
+      padding-right: 20px;
     }
-    
-    
-    .container-10-80-10-col{
-        display: flex;
-        flex-direction: row;
-        width: 100%;
-        overflow: hidden;
+  
+    .container-25-75-lig {
+      display: flex;
+      flex-direction: column; /* Change en colonne pour les petits écrans */
+      width: 100%;
+      overflow: hidden;
     }
-    .child-10-80-10-col:nth-child(1){
-        flex: 0 0 5%;
+  
+    .child-25-75-lig:nth-child(1) {
+      flex: 1 1 40%;
+      padding-left: 20px;
+      padding-right: 20px;
     }
-    .child-10-80-10-col:nth-child(2){
-        flex: 1 1 90%;
-        padding-left: 2%;
+  
+    .child-25-75-lig:nth-child(2) {
+      flex: 1 1 60%;
+      padding-right: 20px;
+      padding-left: 20px;
     }
-    .child-10-80-10-col:nth-child(3){
-        flex: 0 0 5%;
+  
+    .container-10-80-10-col {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      overflow: hidden;
     }
+  
+    .child-10-80-10-col:nth-child(1),
+    .child-10-80-10-col:nth-child(3) {
+      flex: 0 0 5%;
     }
+  
+    .child-10-80-10-col:nth-child(2) {
+      flex: 1 1 90%;
+      padding-left: 2%;
+      overflow: auto;
+    }
+  }
+  
