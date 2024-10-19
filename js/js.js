@@ -135,9 +135,22 @@ async function rechercherMeteoParCodeINSEE(codeINSEE) {
             // Extraction des données utiles
             let forecast = forecastData.forecast;
 
-            //Crée une WeatherCard avec toutes les infos, peut importe si on les affiche
-            tabWheatherCard.push(new WeatherCard(forecast.datetime, forecast.tmax, forecast.tmin, forecast.probarain, forecast.sun_hours, forecast.latitude, forecast.longitude, forecast.rr10, forecast.gust10m, forecast.dirwind10m, forecast.weather));
-
+            /*
+            Pour éviter les doublons (mise à jours des données de l'API),
+            On vérifie si on a pas déjà des données enregistrées à la même date
+            */
+            if(tabWheatherCard.length!=0){
+                if(forecast.datetime != tabWheatherCard[tabWheatherCard.length-1].date){
+                    //Crée une WeatherCard avec toutes les infos, peut importe si on les affiche
+                    tabWheatherCard.push(new WeatherCard(forecast.datetime, forecast.tmax, forecast.tmin, forecast.probarain, forecast.sun_hours, forecast.latitude, forecast.longitude, forecast.rr10, forecast.gust10m, forecast.dirwind10m, forecast.weather));
+                }else{
+                    nbJours++;
+                }
+            }
+            else{
+                tabWheatherCard.push(new WeatherCard(forecast.datetime, forecast.tmax, forecast.tmin, forecast.probarain, forecast.sun_hours, forecast.latitude, forecast.longitude, forecast.rr10, forecast.gust10m, forecast.dirwind10m, forecast.weather));
+            }
+            
         } catch (error) {
             console.error(error); // Affiche l'erreur dans la console en cas de problème
             document.getElementById('texteBulle').innerHTML = "<p>Impossible de récupérer les infos météo.</p>";
