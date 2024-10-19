@@ -139,6 +139,10 @@ body {
   transform-origin: top;
 }
 
+img{
+  max-width: 50%;
+  min-width: 50%;
+}
 
 .boutonBulleToobo{
   height: 100%;
