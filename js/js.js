@@ -118,6 +118,9 @@ async function rechercherMeteoParCodeINSEE(codeINSEE) {
     // Token de l'API Météo Concept (clé d'authentification)
     const token = '83e0e2c124fdddb66c4a732aa8839d713fd07053a743e8ec040f584c8cbed32a';
 
+    //Vide le tableau de WeatherCard pour afficher les nouvelles infos
+    tabWheatherCard.splice(0, tabWheatherCard.length);
+
     for(let i=0; i<nbJours; ++i){
 
         // URL pour obtenir les prévisions météo (températures, probabilité de pluie)
@@ -131,7 +134,6 @@ async function rechercherMeteoParCodeINSEE(codeINSEE) {
     
             // Extraction des données utiles
             let forecast = forecastData.forecast;
-
 
             //Crée une WeatherCard avec toutes les infos, peut importe si on les affiche
             tabWheatherCard.push(new WeatherCard(forecast.datetime, forecast.tmax, forecast.tmin, forecast.probarain, forecast.sun_hours, forecast.latitude, forecast.longitude, forecast.rr10, forecast.gust10m, forecast.dirwind10m, forecast.weather));
