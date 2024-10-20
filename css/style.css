@@ -7,7 +7,6 @@
     padding-bottom: 0.1em;
     background: linear-gradient(0.14turn, #49a85e, #8bf687);
     border-bottom: rgb(0, 0, 0) 3px solid;
-
     color:rgb(0, 0, 0);
     font-size: 2em;
     font-family: "Kanit", sans-serif;
@@ -19,6 +18,11 @@
 img{
   max-width: 30%;
   max-height: 30%;
+}
+
+.imgContainer {
+  text-align: center; /* Centre l'image dans le conteneur */
+  margin-top: 10px;  /* Ajoute un espace au-dessus de l'image */
 }
 
 @media (width < 800){
@@ -47,10 +51,9 @@ img{
 /*Icone de paramètres*/
 #toggleButton{
   float: left;
-  padding-top: 15px;
-  margin-bottom: auto;
-  overflow: auto;
-  position: relative;
+  padding-top: 10px;
+  
+  margin-right: 10px;
 }
 
 /*Fond du site*/
@@ -102,7 +105,8 @@ body {
 #imgToobo {
   max-height: 100%; /* Limite la hauteur de l'image à celle de son conteneur */
   width: auto; /* Garde les proportions de l'image en ajustant la largeur automatiquement */
-  object-fit: contain; /* Conserve les proportions de l'image */
+  object-fit: contain;
+  display: inline-block; /* Conserve les proportions de l'image */
 }
 
 .speechBubble {
