@@ -25,24 +25,6 @@ img{
   margin-top: 10px;  /* Ajoute un espace au-dessus de l'image */
 }
 
-@media (width < 800){
-  #header{
-    text-align: center;
-    padding-top: 0.1em;
-    padding-bottom: 0.1em;
-    background: linear-gradient(0.14turn, #49a85e, #8bf687);
-    border-bottom: rgb(0, 0, 0) 3px solid;
-
-    color:rgb(0, 0, 0);
-    font-size: 3.5em;
-    font-family: "Kanit", sans-serif;
-    font-weight: 600;
-  font-size: 2em;
-  }
-  #inputCodePostal{
-    border-right: 13px solid black;
-  }
-}
 .labels {
   justify-content: space-between;
   display: flex;
@@ -155,6 +137,14 @@ body {
   width: 3em;
   background: linear-gradient(0.14turn, #70ca83, #8bf687);
   
+}
+
+label[for="inputCodePostal"] {
+  display: none;
+}
+
+label[for="results"] {
+  display: none;
 }
 
 #boutonDroite{

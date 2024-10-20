@@ -17,16 +17,18 @@
   <div class="container-10-15-75-col">
     <!-- Le HEADER -->
     <div class="child-10-15-75-col" id="header">
-      <i class="fa-solid fa-cog fa-1x iconeRouage" id="toggleButton"></i>
+      <em class="fa-solid fa-cog fa-1x iconeRouage" id="toggleButton"></em>
       <div id="texteTitre" style="display: inline-block;">La météo de Gulli</div>
     </div>
     <!-- Les deux barres de recherche -->
     <div class="child-10-15-75-col">
       <div class="container-50-50-lig">
         <div class="child-50-50-lig">
+          <label for="inputCodePostal">t</label>
           <input maxlength="5" type="text" placeholder="Code postal" id="inputCodePostal">
         </div>
         <div class="child-50-50-lig">
+          <label for="results">t</label>
           <select id="results"></select>
         </div>
       </div>
@@ -35,34 +37,34 @@
       <div class="container-25-75-lig">
         <div class="child-25-75-lig">
           <div class="pageParam" id="divOption">
-            <label class="flipBox" aria-label="Checkbox 1">
+            <label for="latitudeCheck" class="flipBox" aria-label="Checkbox 1">
               <input type="checkbox" id="latitudeCheck" />
               <span>Latitude</span>
             </label>
 
-            <label class="flipBox" aria-label="Checkbox 1">
+            <label for="longitudeCheck" class="flipBox" aria-label="Checkbox 1">
               <input type="checkbox" id="longitudeCheck" />
               <span>Longitude</span>
             </label>
 
-            <label class="flipBox" aria-label="Checkbox 1">
+            <label for="cumulPCheck" class="flipBox" aria-label="Checkbox 1">
               <input type="checkbox" id="cumulPCheck" />
               <span>Cumul de pluie aujourd'hui</span>
             </label>
 
-            <label class="flipBox" aria-label="Checkbox 1">
+            <label for="ventMoyCheck" class="flipBox" aria-label="Checkbox 1">
               <input type="checkbox" id="ventMoyCheck" />
               <span>Vent moyen</span>
             </label>
 
-            <label class="flipBox" aria-label="Checkbox 1">
+            <label for="ventDirCheck" class="flipBox" aria-label="Checkbox 1">
               <input type="checkbox" id="ventDirCheck" />
               <span>Direction du vent</span>
             </label>
 
             <div class="range-container">
-              <p>Nombre de jours à prévoir:</p>
-              <input type="range" list="tickmarks" id="slider" min="1" max="7" value="1" step="1">
+              <label for="slider">Nombre de jours à prévoir:</label>
+              <input type="range" id="slider" min="1" max="7" value="1" step="1">
               <div class="labels">
                 <span>1</span>
                 <span>2</span>
