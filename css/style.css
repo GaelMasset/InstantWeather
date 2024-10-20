@@ -103,7 +103,7 @@ body {
 }
 
 #imgToobo {
-  max-height: 100%; /* Limite la hauteur de l'image à celle de son conteneur */
+  max-height: 70%; /* Limite la hauteur de l'image à celle de son conteneur */
   width: auto; /* Garde les proportions de l'image en ajustant la largeur automatiquement */
   object-fit: contain;
   display: inline-block; /* Conserve les proportions de l'image */
@@ -148,10 +148,7 @@ body {
   transform-origin: top;
 }
 
-img{
-  max-width: 50%;
-  min-width: 50%;
-}
+
 
 .boutonBulleToobo{
   height: 100%;
