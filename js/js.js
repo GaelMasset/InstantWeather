@@ -144,6 +144,8 @@ async function rechercherMeteoParCodeINSEE(codeINSEE) {
                     //Crée une WeatherCard avec toutes les infos, peut importe si on les affiche
                     tabWheatherCard.push(new WeatherCard(forecast.datetime, forecast.tmax, forecast.tmin, forecast.probarain, forecast.sun_hours, forecast.latitude, forecast.longitude, forecast.rr10, forecast.gust10m, forecast.dirwind10m, forecast.weather));
                 }else{
+                    tabWheatherCard.pop();
+                    tabWheatherCard.push(new WeatherCard(forecast.datetime, forecast.tmax, forecast.tmin, forecast.probarain, forecast.sun_hours, forecast.latitude, forecast.longitude, forecast.rr10, forecast.gust10m, forecast.dirwind10m, forecast.weather));
                     nbJours++;
                 }
             }
