@@ -196,3 +196,40 @@ body {
 #slider{
   width: 100%;
 }
+
+
+/* Styles spécifiques pour les appareils mobiles */
+@media (max-width: 800px) { /* Remplacez 800px par la largeur de votre choix pour définir la version mobile */
+  html, body {
+    height: 100%; /* Fait en sorte que le body prenne toute la hauteur de la fenêtre */
+    margin: 0; /* Supprime les marges par défaut */
+  }
+
+  /* Conteneur principal pour qu'il s'étende */
+  .container-10-15-75-col {
+    min-height: 100vh; /* Assure que le conteneur principal prend au moins la hauteur de la fenêtre */
+    display: flex;
+    flex-direction: column; /* Permet d'organiser les enfants verticalement */
+    justify-content: flex-start; /* Assure que les éléments commencent en haut */
+  }
+
+  /* S'assurer que le header et les champs de saisie sont bien espacés */
+  #header {
+    margin-bottom: 0; /* Ajuster selon vos besoins */
+  }
+
+  /* Suppression des marges entre le code postal et la liste */
+  #inputCodePostal {
+    margin-bottom: 0; /* Pas de marge inférieure */
+  }
+
+  #results {
+    margin-top: 0; /* Pas de marge supérieure */
+  }
+  #imgToobo {
+    max-width: 80%; /* Ajustez la largeur maximum de l'image pour qu'elle soit plus grande */
+    height: auto; /* Maintient les proportions de l'image */
+  }
+}
+
+
